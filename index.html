@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI活用ガイド | 社内研修資料 | 株式会社Opus.net</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+    :root {
+      --primary: #1a365d;
+      --primary-light: #2b6cb0;
+      --accent: #ed8936;
+      --accent-light: #fbd38d;
+      --bg: #ffffff;
+      --bg-sub: #f7fafc;
+      --text: #1a202c;
+      --text-sub: #4a5568;
+      --border: #e2e8f0;
+      --success: #38a169;
+      --warning: #d69e2e;
+      --danger: #e53e3e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 14px;
+      background: var(--bg);
+    }
+
+    @media print {
+      body { font-size: 11px; line-height: 1.6; }
+      .cover { page-break-after: always; min-height: 100vh; }
+      .section { page-break-inside: avoid; }
+      table { font-size: 10px; }
+      .sidebar { display: none !important; }
+      .menu-toggle { display: none !important; }
+      .layout { display: block; }
+      .content { padding: 40px 20px; }
+    }
+
+    /* ===== Cover ===== */
+    .cover {
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      min-height: 50vh;
+      background: linear-gradient(135deg, var(--primary) 0%, #1e4e8c 50%, var(--primary-light) 100%);
+      color: #fff; text-align: center; padding: 40px 40px;
+    }
+    .cover-label { font-size: 13px; letter-spacing: 6px; text-transform: uppercase; opacity: 0.7; margin-bottom: 24px; }
+    .cover h1 { font-size: 38px; font-weight: 700; margin-bottom: 8px; letter-spacing: 2px; }
+    .cover-sub { font-size: 18px; font-weight: 300; opacity: 0.85; margin-bottom: 48px; }
+    .cover-line { width: 60px; height: 3px; background: var(--accent); margin: 32px auto; }
+    .cover-meta { font-size: 13px; opacity: 0.6; line-height: 2; }
+    .cover-badge { display: inline-block; background: rgba(56,161,105,0.25); border: 1px solid rgba(56,161,105,0.6); color: #9ae6b4; padding: 4px 16px; border-radius: 20px; font-size: 12px; letter-spacing: 2px; margin-bottom: 32px; }
+
+    /* ===== Layout ===== */
+    html { scroll-behavior: smooth; }
+    .layout { display: flex; max-width: 1200px; margin: 0 auto; }
+    .sidebar { width: 260px; flex-shrink: 0; padding: 32px 20px; border-right: 1px solid var(--border); position: sticky; top: 0; height: 100vh; overflow-y: auto; background: var(--bg-sub); }
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    .content { flex: 1; min-width: 0; padding: 60px 40px; }
+
+    /* ===== Sections ===== */
+    .section { margin-bottom: 56px; }
+    .section-number { display: inline-flex; align-items: center; justify-content: center; background: var(--primary); color: #fff; font-size: 12px; font-weight: 700; width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; }
+    h2.section-title { font-size: 22px; color: var(--primary); margin-bottom: 24px; padding-bottom: 8px; border-bottom: 2px solid var(--primary); display: flex; align-items: center; gap: 10px; }
+    h3 { font-size: 16px; color: var(--primary-light); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid var(--accent); }
+    h4 { font-size: 14px; color: var(--text); font-weight: 700; margin: 16px 0 8px; }
+
+    /* ===== Tables ===== */
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 13px; }
+    thead th { background: var(--primary); color: #fff; font-weight: 500; padding: 10px 12px; text-align: left; font-size: 12px; white-space: nowrap; }
+    tbody td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:nth-child(even) { background: var(--bg-sub); }
+
+    /* ===== Boxes ===== */
+    .highlight-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-left: 4px solid var(--accent); padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+    .highlight-box p { margin: 4px 0; font-size: 13px; }
+    .info-box { background: #ebf8ff; border-left: 4px solid var(--primary-light); padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+    .info-box p { margin: 4px 0; font-size: 13px; }
+    .caution-box { background: #fff5f5; border-left: 4px solid var(--danger); padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+    .caution-box p { margin: 4px 0; font-size: 13px; }
+
+    /* ===== Summary Grid ===== */
+    .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+    .summary-card { background: var(--bg-sub); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+    .summary-card.accent { border-color: var(--accent); background: linear-gradient(135deg, #fffbeb 0%, #fff 100%); }
+    .summary-card .label { font-size: 12px; color: var(--text-sub); margin-bottom: 4px; }
+    .summary-card .value { font-size: 28px; font-weight: 700; color: var(--primary); }
+    .summary-card .unit { font-size: 12px; color: var(--text-sub); }
+    .summary-card .note { font-size: 11px; color: var(--text-sub); margin-top: 4px; }
+
+    /* ===== Use-case Grid ===== */
+    .usecase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0; }
+    .usecase-card { background: var(--bg-sub); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .usecase-card .card-icon { font-size: 28px; margin-bottom: 8px; }
+    .usecase-card .card-title { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+    .usecase-card .card-desc { font-size: 13px; color: var(--text-sub); line-height: 1.7; }
+
+    /* ===== Member Badge ===== */
+    .member-badge { display: inline-block; padding: 3px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #fff; margin-right: 4px; }
+    .member-badge.matsumoto { background: #6A1B9A; }
+    .member-badge.kurihara { background: #1565C0; }
+    .member-badge.tsuneda { background: #2E7D32; }
+    .member-badge.all { background: var(--primary); }
+
+    /* ===== Prompt Card ===== */
+    .prompt-card { background: #1a202c; color: #e2e8f0; border-radius: 10px; padding: 16px 20px; margin: 12px 0; position: relative; font-size: 13px; line-height: 1.7; }
+    .prompt-card .prompt-label { font-size: 11px; color: var(--accent); font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; }
+    .prompt-card .prompt-text { white-space: pre-wrap; font-family: 'Noto Sans JP', sans-serif; }
+    .prompt-card .copy-btn { position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #e2e8f0; padding: 4px 12px; border-radius: 6px; font-size: 11px; cursor: pointer; transition: all 0.15s; }
+    .prompt-card .copy-btn:hover { background: rgba(255,255,255,0.2); }
+    .prompt-card .copy-btn.copied { background: var(--success); border-color: var(--success); color: #fff; }
+
+    /* ===== Steps ===== */
+    .step-list { counter-reset: step; margin: 16px 0; }
+    .step-item { position: relative; padding: 16px 20px 16px 56px; margin: 8px 0; background: var(--bg-sub); border: 1px solid var(--border); border-radius: 10px; counter-increment: step; }
+    .step-item::before { content: counter(step); position: absolute; left: 16px; top: 16px; width: 28px; height: 28px; background: var(--primary); color: #fff; border-radius: 50%; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .step-item .step-title { font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+    .step-item .step-desc { font-size: 13px; color: var(--text-sub); }
+
+    /* ===== Important Rule ===== */
+    .rule-box { background: #faf5ff; border: 2px solid #9F7AEA; border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+    .rule-box .rule-title { font-size: 15px; font-weight: 700; color: #6B46C1; margin-bottom: 12px; }
+    .rule-box ul { padding-left: 20px; }
+    .rule-box li { margin: 6px 0; font-size: 13px; }
+
+    /* ===== Misc ===== */
+    ul, ol { padding-left: 24px; margin: 8px 0; }
+    li { margin: 4px 0; font-size: 13px; }
+    p { margin: 8px 0; font-size: 14px; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .doc-footer { text-align: center; padding: 40px; color: var(--text-sub); font-size: 12px; border-top: 1px solid var(--border); margin-top: 60px; }
+    .text-sub { color: var(--text-sub); font-size: 13px; }
+
+    /* ===== TOC ===== */
+    .toc h2 { font-size: 13px; color: var(--text-sub); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); letter-spacing: 2px; font-weight: 500; }
+    .toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc li { counter-increment: toc; }
+    .toc li a { display: flex; align-items: baseline; gap: 8px; padding: 7px 10px; margin: 1px 0; border-radius: 6px; color: var(--text-sub); text-decoration: none; font-size: 12.5px; transition: all 0.15s; line-height: 1.5; }
+    .toc li a:hover { color: var(--primary); background: rgba(26,54,93,0.06); }
+    .toc li a.active { color: var(--primary); background: rgba(43,108,176,0.1); font-weight: 600; }
+    .toc li a::before { content: counter(toc, decimal-leading-zero); font-size: 11px; font-weight: 700; color: var(--primary-light); min-width: 18px; opacity: 0.5; }
+    .toc li a.active::before { opacity: 1; color: var(--primary); }
+
+    /* ===== Mobile ===== */
+    .menu-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 1000; background: var(--primary); color: #fff; border: none; padding: 8px 14px; border-radius: 8px; font-size: 14px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .layout { display: block; }
+      .sidebar { position: fixed; top: 0; left: -280px; width: 280px; height: 100vh; z-index: 999; border-right: 1px solid var(--border); transition: left 0.25s ease; box-shadow: none; }
+      .sidebar.open { left: 0; box-shadow: 4px 0 24px rgba(0,0,0,0.15); }
+      .sidebar-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); z-index: 998; }
+      .sidebar-overlay.open { display: block; }
+      .content { padding: 40px 20px; padding-top: 60px; }
+      .cover h1 { font-size: 28px; }
+      .cover-sub { font-size: 15px; }
+      .summary-grid { grid-template-columns: 1fr; }
+      .usecase-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== COVER ========== -->
+<div class="cover">
+  <p class="cover-label">AI Training Guide</p>
+  <h1>AI活用ガイド</h1>
+  <p class="cover-sub">Opus.net 社内研修資料</p>
+  <div class="cover-badge">3/2 全員研修</div>
+  <div class="cover-line"></div>
+  <div class="cover-meta">
+    <p>株式会社Opus.net</p>
+    <p>2026年3月2日 研修用</p>
+    <p>作成: 上田 琉</p>
+  </div>
+</div>
+
+<!-- Mobile Menu Toggle -->
+<button class="menu-toggle" id="menuToggle">&#9776; 目次</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- ========== LAYOUT ========== -->
+<div class="layout">
+
+<!-- Sidebar TOC -->
+<aside class="sidebar" id="sidebar">
+  <nav class="toc">
+    <h2>目次</h2>
+    <ol>
+      <li><a href="#sec1">なぜ今AIなのか</a></li>
+      <li><a href="#sec2">AIツール比較 & 予算</a></li>
+      <li><a href="#sec3">松本さん — 経営 × AI</a></li>
+      <li><a href="#sec4">栗原さん — 映像 × AI</a></li>
+      <li><a href="#sec5">常田さん — 営業 × AI</a></li>
+      <li><a href="#sec6">すぐ使えるプロンプト集</a></li>
+      <li><a href="#sec7">ハンズオン手順</a></li>
+      <li><a href="#sec8">セキュリティ・注意事項</a></li>
+    </ol>
+  </nav>
+</aside>
+
+<!-- ========== MAIN CONTENT ========== -->
+<div class="content">
+
+  <!-- ===== 1. なぜ今AIなのか ===== -->
+  <div class="section" id="sec1">
+    <h2 class="section-title"><span class="section-number">1</span>なぜ今AIなのか</h2>
+
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="label">月額投資</div>
+        <div class="value">3,000<span class="unit">円/人</span></div>
+        <div class="note">1日あたり約100円</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">対象メンバー</div>
+        <div class="value">4<span class="unit">名</span></div>
+        <div class="note">松本・上田・栗原・常田</div>
+      </div>
+      <div class="summary-card accent">
+        <div class="label">ゴール</div>
+        <div class="value" style="font-size: 20px;">全員が<br>使える状態</div>
+        <div class="note">上田だけ → 全員の武器に</div>
+      </div>
+    </div>
+
+    <h3>導入の目的</h3>
+    <p>AIツールを全員の日常業務に組み込み、<strong>一人ひとりの生産性を底上げする</strong>のが目的です。</p>
+    <p>SNS事業・事故なび事業・Web制作事業、どの領域でも「文章を書く」「情報を整理する」「アイデアを出す」場面があります。そこにAIを使えば、<strong>今までの半分の時間で、より質の高いアウトプット</strong>が出せます。</p>
+
+    <div class="rule-box">
+      <div class="rule-title">大前提：AIを使うことが目的ではない</div>
+      <ul>
+        <li><strong>AIは道具</strong>です。使うこと自体に価値はありません</li>
+        <li>目的は<strong>「業務の成果を出すこと」</strong>。AIはそのための手段のひとつ</li>
+        <li>AIを使って時間が浮いたら、<strong>本来やるべき仕事（営業・企画・お客様対応）に時間を使う</strong></li>
+        <li>「AIで何ができるか」ではなく<strong>「自分の仕事で何を楽にしたいか」</strong>から考える</li>
+        <li>使わなくていい場面で無理に使う必要はない。<strong>効果がある場面だけ</strong>使えばOK</li>
+      </ul>
+    </div>
+
+    <h3>上田が実際にAIで変わったこと</h3>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="card-title">提案書の作成</div>
+        <div class="card-desc">以前は2時間 → <strong>AIで20分</strong>。構成・文面のたたき台をAIに作らせ、自分は内容の調整に集中</div>
+      </div>
+      <div class="usecase-card">
+        <div class="card-title">営業DMの作成</div>
+        <div class="card-desc">相手の店舗情報を入力 → <strong>3パターンの文面を自動生成</strong>。0から書く手間がなくなった</div>
+      </div>
+      <div class="usecase-card">
+        <div class="card-title">競合リサーチ</div>
+        <div class="card-desc">Webで1つずつ調べていた作業 → AIに<strong>「この業界の競合を分析して」で一発</strong></div>
+      </div>
+    </div>
+
+    <h3>AIにできること / できないこと</h3>
+    <table>
+      <thead>
+        <tr><th style="width:50%">AIが得意なこと</th><th style="width:50%">AIにはできないこと</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>文章の下書き・要約・リライト</td><td>最終判断・意思決定</td></tr>
+        <tr><td>情報の整理・分類・比較表の作成</td><td>人間関係の構築・交渉</td></tr>
+        <tr><td>アイデア出し・ブレスト相手</td><td>クリエイティブの最終的な「味」の仕上げ</td></tr>
+        <tr><td>データの分析・傾向の把握</td><td>社内の空気感・暗黙知の理解</td></tr>
+        <tr><td>定型業務の効率化</td><td>正確な事実の保証（嘘をつくことがある）</td></tr>
+      </tbody>
+    </table>
+
+    <div class="info-box">
+      <p><strong>ポイント:</strong> AIは「優秀なアシスタント」です。指示を出すのも、最終チェックするのも自分。あくまで<strong>自分の仕事を加速させるパートナー</strong>として使いましょう。</p>
+    </div>
+  </div>
+
+  <!-- ===== 2. AIツール比較 ===== -->
+  <div class="section" id="sec2">
+    <h2 class="section-title"><span class="section-number">2</span>AIツール比較 & 予算プラン</h2>
+
+    <p>月3,000円の予算で使えるAIツール3つを比較します。どれを選んでも日常業務は十分カバーできます。</p>
+
+    <h3>主要ツール比較</h3>
+    <table>
+      <thead>
+        <tr><th>項目</th><th>ChatGPT Plus</th><th>Claude Pro</th><th>Gemini Advanced</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>月額</strong></td>
+          <td>約3,000円（$20）</td>
+          <td>約3,000円（$20）</td>
+          <td>2,900円</td>
+        </tr>
+        <tr>
+          <td><strong>得意なこと</strong></td>
+          <td>汎用性が高い<br>画像生成もできる<br>プラグインが豊富</td>
+          <td>長い文章の読解・要約<br>日本語が自然<br>丁寧な回答</td>
+          <td>Google連携（Gmail, Drive, Docs）<br>検索と組み合わせた回答</td>
+        </tr>
+        <tr>
+          <td><strong>こんな人向け</strong></td>
+          <td>初めてAIを使う人<br>色々試したい人</td>
+          <td>文章作成・資料作りが多い人</td>
+          <td>Gmail / Googleドキュメントをよく使う人</td>
+        </tr>
+        <tr>
+          <td><strong>無料版との違い</strong></td>
+          <td>最新モデル使い放題<br>ファイルアップロード</td>
+          <td>回数制限が大幅緩和<br>長い文章も処理可能</td>
+          <td>最新Geminiモデル<br>2TBストレージ</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>おすすめプラン</h3>
+    <div class="highlight-box">
+      <p><strong>結論: まずは全員ChatGPT Plusで統一がおすすめ</strong></p>
+      <p>理由:</p>
+      <ul style="margin-top: 4px;">
+        <li>情報が一番多い（困ったときにネットで解決策が見つかりやすい）</li>
+        <li>画像生成もできて、栗原さんのサムネ作成にも使える</li>
+        <li>全員同じツールだと社内で教え合いやすい</li>
+      </ul>
+      <p style="margin-top: 8px;">慣れてきたら、各自に合ったツールに乗り換えてOKです。</p>
+    </div>
+
+    <h3>無料でも使えるの？</h3>
+    <div class="info-box">
+      <p>無料版でも基本的な質問はできますが、<strong>回数制限が厳しく</strong>仕事では足りなくなります。</p>
+      <p>有料版（月3,000円）にすると: 最新のAIモデルが使い放題、ファイルアップロード可能、長い文章も処理できるようになります。</p>
+    </div>
+  </div>
+
+  <!-- ===== 3. 松本さん向け ===== -->
+  <div class="section" id="sec3">
+    <h2 class="section-title"><span class="section-number">3</span><span class="member-badge matsumoto">松本さん</span>経営 × AI</h2>
+
+    <p>経営判断の壁打ち相手、方針文書の下書き、データの分析・可視化など、<strong>「考える」仕事のスピードを上げる</strong>使い方がメインです。</p>
+
+    <h3>活用シーン</h3>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="card-title">経営判断の壁打ち</div>
+        <div class="card-desc">新規事業のアイデアや方針を相談。メリット・デメリット・リスクを整理してくれる。一人で悩む時間を削減</div>
+      </div>
+      <div class="usecase-card">
+        <div class="card-title">データ分析・レポート</div>
+        <div class="card-desc">売上データやCRMのデータを貼り付けて「傾向と改善点を教えて」で分析。グラフの読み方も解説してくれる</div>
+      </div>
+      <div class="usecase-card">
+        <div class="card-title">社内文書・方針書の作成</div>
+        <div class="card-desc">全社メール、事業方針書、議事録の整理。要点だけ伝えればAIが文書化してくれる</div>
+      </div>
+    </div>
+
+    <h3>すぐ使えるプロンプト例</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-label">経営判断の壁打ち</div>
+      <div class="prompt-text">以下の事業アイデアについて、メリット・デメリット・リスクを整理してください。
+判断材料として使いたいので、結論も出してください。
+
+【アイデア】
+（ここに相談内容を入力）
+
+【前提条件】
+・会社規模: 6名のIT・マーケティング会社
+・現在の事業: SNS運用代行、交通事故マッチング、Web制作</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-label">データ分析</div>
+      <div class="prompt-text">以下のデータから傾向と改善点を分析してください。
+経営者として判断に使いたいので、数字の意味を分かりやすく説明してください。
+
+【データ】
+（ここにデータを貼り付け）</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-label">方針文書の作成</div>
+      <div class="prompt-text">以下の要点をもとに、社内向けの方針書を作成してください。
+全員に伝わるように、簡潔で具体的な文章にしてください。
+
+【要点】
+・（箇条書きで要点を入力）
+
+【対象】
+・社員6名に向けた文書</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+  </div>
+
+  <!-- ===== 4. 栗原さん向け ===== -->
+  <div class="section" id="sec4">
+    <h2 class="section-title"><span class="section-number">4</span><span class="member-badge kurihara">栗原さん</span>映像制作 × AI</h2>
+
+    <p>撮影・編集の「前後の工程」でAIを活用すると、<strong>企画〜仕上げまでのスピードが大幅に上がります</strong>。撮影・編集そのものは栗原さんのスキルが活きる部分です。</p>
+
+    <h3>活用シーン</h3>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="card-title">台本・構成案の作成</div>
+        <div class="card-desc">「バーのTikTok動画、15秒、来店促進が目的」→ 構成案を3パターン出してくれる。0から考える時間を短縮</div>
+      </div>
+      <div class="usecase-card">
+        <div class="card-title">テロップ・キャッチコピー</div>
+        <div class="card-desc">動画のシーンに合うテロップ案を大量に出してもらい、その中からピックアップ。コピーのネタ切れ防止</div>
+      </div>
+      <div class="usecase-card">
+        <div class="card-title">サムネイル文言</div>
+        <div class="card-desc">TikTokやInstagramのサムネイルに載せるキャッチコピー案。クリック率を意識した案を出せる</div>
+      </div>
+      <div class="usecase-card">
+        <div class="card-title">投稿文・ハッシュタグ</div>
+        <div class="card-desc">動画の内容を伝えると、投稿文と最適なハッシュタグセットを作ってくれる</div>
+      </div>
+    </div>
+
+    <h3>すぐ使えるプロンプト例</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-label">TikTok台本の作成</div>
+      <div class="prompt-text">TikTok動画の台本を3パターン作ってください。
+
+【お店の情報】
+・業態:（バー / コンセプトカフェ / etc.）
+・お店の名前:
+・お店の特徴:
+・エリア:
+
+【動画の条件】
+・尺: 15秒 / 30秒 / 60秒
+・目的: 来店促進 / 認知拡大 / フォロワー獲得
+・ターゲット: 20代男性 / 20代女性 / etc.
+
+各パターンにシーン割り（何秒目に何を映すか）も入れてください。</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-label">テロップ案の大量出し</div>
+      <div class="prompt-text">以下のTikTok動画のシーンに合うテロップを、各シーン5案ずつ出してください。
+バズりやすい・目を引く表現を優先してください。
+
+【シーン1】お店の外観が映る（3秒）
+【シーン2】ドリンクを作っている（5秒）
+【シーン3】お客さんが楽しんでいる（4秒）
+【シーン4】お店のロゴ + 情報（3秒）</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-label">投稿文 + ハッシュタグ</div>
+      <div class="prompt-text">以下のTikTok動画の投稿文とハッシュタグを作ってください。
+
+【動画の内容】
+（動画の内容を1〜2文で説明）
+
+【お店の情報】
+・名前:
+・エリア:
+・業態:
+
+【条件】
+・投稿文は3行以内で短く
+・ハッシュタグは10〜15個
+・エリア系のハッシュタグも入れる</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+  </div>
+
+  <!-- ===== 5. 常田さん向け ===== -->
+  <div class="section" id="sec5">
+    <h2 class="section-title"><span class="section-number">5</span><span class="member-badge tsuneda">常田さん</span>営業 × AI</h2>
+
+    <p>事故なび事業の営業活動で、<strong>メール・トーク準備・ヒアリング整理</strong>にAIを活用します。営業の「準備と振り返り」の時間を短縮して、お客様との対話に集中できます。</p>
+
+    <h3>活用シーン</h3>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="card-title">テレアポの事前準備</div>
+        <div class="card-desc">訪問先の整骨院情報をAIに入れて「ポイントを整理して」→ 10分で準備完了。トークの引き出しが増える</div>
+      </div>
+      <div class="usecase-card">
+        <div class="card-title">メール文面の作成</div>
+        <div class="card-desc">初回アプローチ・フォローアップ・お礼メールなど、要点を伝えるだけでAIが文面を作成</div>
+      </div>
+      <div class="usecase-card">
+        <div class="card-title">商談メモの整理</div>
+        <div class="card-desc">走り書きのメモを貼り付ければ、要点を整理して次のアクションまで提案してくれる</div>
+      </div>
+      <div class="usecase-card">
+        <div class="card-title">トークスクリプトの改善</div>
+        <div class="card-desc">「こう言ったらこう返された」→ AIに相談して切り返しトークを準備</div>
+      </div>
+    </div>
+
+    <h3>すぐ使えるプロンプト例</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-label">テレアポ準備（営業前の10分）</div>
+      <div class="prompt-text">これから以下の整骨院に電話営業をします。
+効果的なトークのポイントを整理してください。
+
+【整骨院の情報】
+・院名:
+・エリア:
+・特徴:（交通事故対応あり / スポーツ特化 / etc.）
+
+【提案する内容】
+・事故なびへの登録メリット
+・成果報酬型なのでリスクなし
+
+【知りたいこと】
+・最初の一言をどう切り出すか
+・よくある断り文句と切り返し方</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-label">フォローアップメール</div>
+      <div class="prompt-text">先日商談した整骨院へのフォローアップメールを書いてください。
+
+【商談の内容】
+・院名:
+・担当者名:
+・商談日:
+・話した内容:（箇条書きで）
+・先方の反応:
+・次にやること:
+
+【メールのトーン】
+・丁寧だけど堅すぎない
+・売り込み感を出さない
+・短く（スクロールしなくても読める長さ）</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-label">商談メモの整理</div>
+      <div class="prompt-text">以下の商談メモを整理してください。
+・要点を箇条書きでまとめる
+・次のアクション（誰が・いつまでに・何をするか）を明確にする
+・CRMに入力する情報も別途まとめる
+
+【走り書きメモ】
+（ここにメモを貼り付け）</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+  </div>
+
+  <!-- ===== 6. プロンプト集 ===== -->
+  <div class="section" id="sec6">
+    <h2 class="section-title"><span class="section-number">6</span>すぐ使えるプロンプト集</h2>
+
+    <p>業務で使える汎用的なプロンプトテンプレートです。<strong>「コピー」ボタン</strong>を押して、（ ）の部分を自分の内容に書き換えて使ってください。</p>
+
+    <h3>メール・文章系</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-label">メールの返信を書く</div>
+      <div class="prompt-text">以下のメールへの返信を書いてください。
+丁寧だけど堅すぎない、ビジネスメールのトーンで。
+
+【受信メール】
+（ここにメール本文を貼り付け）
+
+【返信のポイント】
+（伝えたいことを箇条書きで）</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-label">長い文章を要約する</div>
+      <div class="prompt-text">以下の文章を、要点だけ箇条書き3〜5個にまとめてください。
+専門用語があれば分かりやすく言い換えてください。
+
+【文章】
+（ここに文章を貼り付け）</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+
+    <h3>アイデア・企画系</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-label">ブレスト相手になってもらう</div>
+      <div class="prompt-text">以下のテーマでアイデアを10個出してください。
+実現可能性は気にせず、まずは量を出してください。
+
+【テーマ】
+（テーマを入力）
+
+【条件・制約】
+（あれば入力。なければ削除してOK）</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+
+    <h3>データ・情報整理系</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-label">比較表を作る</div>
+      <div class="prompt-text">以下の選択肢を比較表にまとめてください。
+判断がしやすいように、メリット・デメリット・コストを含めてください。
+
+【比較したいもの】
+1.（選択肢A）
+2.（選択肢B）
+3.（選択肢C）
+
+【比較の観点】
+（何を重視して比較したいか）</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-label">議事録を整理する</div>
+      <div class="prompt-text">以下の打ち合わせメモを議事録にまとめてください。
+
+【フォーマット】
+・日時:
+・参加者:
+・議題:
+・決定事項:（箇条書き）
+・次のアクション:（誰が・いつまでに・何を）
+・保留事項:
+
+【メモ】
+（ここにメモを貼り付け）</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+
+    <h3>リサーチ系</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-label">業界・競合を調べる</div>
+      <div class="prompt-text">以下の業界/会社について調べてください。
+
+【対象】
+（業界名 or 会社名）
+
+【知りたいこと】
+・市場規模や傾向
+・主要なプレイヤー
+・最近のトレンド
+・うちの事業との関連性
+
+分かる範囲で回答してください。不確実な情報は「推定」と明記してください。</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+  </div>
+
+  <!-- ===== 7. ハンズオン手順 ===== -->
+  <div class="section" id="sec7">
+    <h2 class="section-title"><span class="section-number">7</span>ハンズオン手順</h2>
+
+    <p>今日この場で、アカウント作成から最初の質問まで一緒にやります。<strong>スマホでもPCでもOK</strong>です。</p>
+
+    <h3>ChatGPTの始め方</h3>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-title">ChatGPTにアクセス</div>
+        <div class="step-desc">ブラウザで <strong>chatgpt.com</strong> を開く（アプリでもOK）</div>
+      </div>
+      <div class="step-item">
+        <div class="step-title">アカウントを作成</div>
+        <div class="step-desc">「Sign up」→ Googleアカウントでログインが一番簡単。メールアドレスでも登録可能</div>
+      </div>
+      <div class="step-item">
+        <div class="step-title">有料プランに切り替え</div>
+        <div class="step-desc">ログイン後、左下のアカウント名をクリック → 「Upgrade to Plus」→ カード情報を入力。<strong>月額$20（約3,000円）</strong></div>
+      </div>
+      <div class="step-item">
+        <div class="step-title">最初の質問をしてみる</div>
+        <div class="step-desc">チャット欄に何でもいいので質問を入力して「送信」を押す。まずは気軽に話しかけてみましょう</div>
+      </div>
+      <div class="step-item">
+        <div class="step-title">ファイルを送ってみる</div>
+        <div class="step-desc">チャット欄の「+」ボタンからファイルを添付可能。PDFやExcelを送って「この内容を要約して」と聞いてみましょう</div>
+      </div>
+    </div>
+
+    <h3>最初に試す3つの質問</h3>
+    <div class="highlight-box">
+      <p><strong>1. 自己紹介から始める</strong></p>
+      <p style="font-size: 13px; color: var(--text-sub);">「私は○○の仕事をしています。この仕事を効率化するアイデアを3つ教えてください」</p>
+      <p style="margin-top: 12px;"><strong>2. メールの下書きを頼む</strong></p>
+      <p style="font-size: 13px; color: var(--text-sub);">「以下のメールに返信を書いてください:（メール本文を貼り付け）」</p>
+      <p style="margin-top: 12px;"><strong>3. 文章を要約してもらう</strong></p>
+      <p style="font-size: 13px; color: var(--text-sub);">「以下の文章を、要点だけ3つにまとめてください:（長い文章を貼り付け）」</p>
+    </div>
+
+    <h3>うまく使うコツ</h3>
+    <div class="info-box">
+      <p><strong>具体的に指示するほど、良い回答が返ってくる</strong></p>
+      <ul style="margin-top: 8px;">
+        <li>NG:「メール書いて」→ ぼんやりした回答になる</li>
+        <li>OK:「○○さんへのお礼メール。昨日の商談のフォローアップ。丁寧だけど短く」→ 的確な回答</li>
+      </ul>
+      <p style="margin-top: 8px;">迷ったら<strong>「誰に・何を・どんなトーンで」</strong>を伝えれば大丈夫です。</p>
+    </div>
+  </div>
+
+  <!-- ===== 8. セキュリティ ===== -->
+  <div class="section" id="sec8">
+    <h2 class="section-title"><span class="section-number">8</span>セキュリティ・注意事項</h2>
+
+    <p>AIを安全に使うためのルールです。<strong>これだけは守ってください。</strong></p>
+
+    <h3>絶対にやってはいけないこと</h3>
+    <div class="caution-box">
+      <p><strong>以下の情報はAIに入力しないでください:</strong></p>
+      <ul style="margin-top: 8px;">
+        <li><strong>患者さんの個人情報</strong>（名前・住所・電話番号・病名など）</li>
+        <li><strong>クレジットカード情報</strong>（自分のも他人のも）</li>
+        <li><strong>契約書の原文</strong>（金額や条件がそのまま含まれるもの）</li>
+        <li><strong>パスワード・ログイン情報</strong></li>
+      </ul>
+    </div>
+
+    <h3>安全に使うコツ</h3>
+    <div class="info-box">
+      <p><strong>個人情報を伏せ字にしてから入力する</strong></p>
+      <ul style="margin-top: 8px;">
+        <li>「山田太郎さん」→「Aさん」や「○○さん」に置き換え</li>
+        <li>「渋谷区○○1-2-3」→「東京都内」に置き換え</li>
+        <li>固有名詞を伏せても、AIは文脈を理解して回答してくれます</li>
+      </ul>
+    </div>
+
+    <h3>AIの回答を扱うルール</h3>
+    <div class="rule-box">
+      <div class="rule-title">3つのルール</div>
+      <ul>
+        <li><strong>AIの回答は必ず自分で確認してから使う</strong> — AIは「嘘をつく」ことがあります（もっともらしいが間違った回答をする）。特に数字やデータは要注意</li>
+        <li><strong>AIが作った文章はそのまま送らない</strong> — 必ず目を通して、自分の言葉に直してから送信する</li>
+        <li><strong>重要な判断はAI任せにしない</strong> — AIはあくまで参考意見。最終判断は自分で行う</li>
+      </ul>
+    </div>
+
+    <h3>データ学習をOFFにする設定（推奨）</h3>
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-title">ChatGPTの設定を開く</div>
+        <div class="step-desc">左下のアカウント名 → 「Settings」をクリック</div>
+      </div>
+      <div class="step-item">
+        <div class="step-title">データ管理を開く</div>
+        <div class="step-desc">「Data controls」をクリック</div>
+      </div>
+      <div class="step-item">
+        <div class="step-title">学習をOFFにする</div>
+        <div class="step-desc">「Improve the model for everyone」を<strong>OFF</strong>にする。これで入力した内容がAIの学習に使われなくなります</div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <p><strong>迷ったら「この情報、社外の人に見せて大丈夫？」と考えてください。</strong></p>
+      <p>大丈夫なら入力OK。ダメなら伏せ字にするか、入力しない。それだけでOKです。</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="doc-footer">
+    <p>社内研修資料 — 3/2のハンズオンで実際に触りながら進めます</p>
+    <p style="margin-top: 8px;">株式会社Opus.net | 2026年3月2日研修用 | 作成: 上田 琉</p>
+  </div>
+
+</div><!-- /.content -->
+</div><!-- /.layout -->
+
+<script>
+// Sidebar active state tracking
+(function() {
+  var sections = document.querySelectorAll('.section[id]');
+  var links = document.querySelectorAll('.toc a');
+  function update() {
+    var cur = '';
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].getBoundingClientRect().top <= 120) cur = sections[i].id;
+    }
+    for (var j = 0; j < links.length; j++) {
+      links[j].classList.toggle('active', links[j].getAttribute('href') === '#' + cur);
+    }
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+// Mobile sidebar toggle
+(function() {
+  var toggle = document.getElementById('menuToggle');
+  var sidebar = document.getElementById('sidebar');
+  var overlay = document.getElementById('sidebarOverlay');
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+  }
+  toggle.addEventListener('click', function() {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('open');
+  });
+  overlay.addEventListener('click', closeSidebar);
+  // Close on link click (mobile)
+  sidebar.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', closeSidebar);
+  });
+})();
+
+// Copy prompt to clipboard
+function copyPrompt(btn) {
+  var text = btn.parentElement.querySelector('.prompt-text').textContent;
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'コピー完了!';
+    btn.classList.add('copied');
+    setTimeout(function() {
+      btn.textContent = 'コピー';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
