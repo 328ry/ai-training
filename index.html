@@ -38,19 +38,18 @@
     .slide {
       position: absolute; top: 0; left: 0;
       width: 100%; height: 100%;
-      display: flex; flex-direction: column; justify-content: center;
+      display: flex; flex-direction: column; justify-content: flex-start;
       padding: 60px 80px;
       opacity: 0; pointer-events: none;
       transition: opacity 0.4s ease;
       overflow-y: auto;
     }
     .slide.active { opacity: 1; pointer-events: auto; }
-    .slide.slide-top { justify-content: flex-start; padding-top: 48px; }
 
     /* ===== Cover Slide ===== */
     .slide.cover {
       background: var(--bg);
-      text-align: center; align-items: center;
+      justify-content: center; text-align: center; align-items: center;
     }
     .cover-label { font-size: 14px; letter-spacing: 8px; text-transform: uppercase; color: var(--text-sub); margin-bottom: 24px; }
     .cover h1 { font-size: 52px; font-weight: 900; letter-spacing: 3px; margin-bottom: 12px; color: var(--primary); }
@@ -62,7 +61,7 @@
     /* ===== Section Title Slide ===== */
     .slide.section-title {
       background: var(--bg);
-      text-align: center; align-items: center;
+      justify-content: center; text-align: center; align-items: center;
     }
     .section-num { font-size: 72px; font-weight: 900; color: var(--accent); opacity: 0.2; margin-bottom: -8px; }
     .section-title-text { font-size: 40px; font-weight: 700; margin-bottom: 16px; color: var(--primary); }
@@ -252,7 +251,7 @@
   </div>
 
   <!-- ===== SLIDE 3: Concrete examples ===== -->
-  <div class="slide slide-top">
+  <div class="slide">
     <h2>具体例で見る<span class="accent">違い</span></h2>
     <table>
       <thead>
@@ -432,7 +431,7 @@
   </div>
 
   <!-- ===== SLIDE 10: Comparison ===== -->
-  <div class="slide slide-top">
+  <div class="slide">
     <h2>3つの<span class="accent">比較</span></h2>
     <table>
       <thead>
@@ -480,7 +479,7 @@
   </div>
 
   <!-- ===== SLIDE 13: Matsumoto prompt ===== -->
-  <div class="slide slide-top">
+  <div class="slide">
     <h2><span class="badge matsumoto">松本さん</span> エージェントへの指示例</h2>
     <div class="prompt-card">
       <div class="prompt-label">事業方針書の作成</div>
@@ -534,7 +533,7 @@
   </div>
 
   <!-- ===== SLIDE 15: Kurihara prompt ===== -->
-  <div class="slide slide-top">
+  <div class="slide">
     <h2><span class="badge kurihara">栗原さん</span> エージェントへの指示例</h2>
     <div class="prompt-card">
       <div class="prompt-label">今月分の台本一括作成</div>
@@ -581,7 +580,7 @@
   </div>
 
   <!-- ===== SLIDE 17: Tsuneda prompt ===== -->
-  <div class="slide slide-top">
+  <div class="slide">
     <h2><span class="badge tsuneda">常田さん</span> エージェントへの指示例</h2>
     <div class="prompt-card">
       <div class="prompt-label">訪問前の10分リサーチ</div>
@@ -632,7 +631,7 @@
   </div>
 
   <!-- ===== SLIDE 20: Good vs Bad ===== -->
-  <div class="slide slide-top">
+  <div class="slide">
     <h2>良い指示 / <span class="accent">ダメな指示</span></h2>
     <table>
       <thead><tr><th style="width:40%">ダメな指示</th><th style="width:60%">良い指示</th></tr></thead>
@@ -714,7 +713,7 @@
   </div>
 
   <!-- ===== SLIDE 24: Claude Code setup ===== -->
-  <div class="slide slide-top">
+  <div class="slide">
     <h2><span class="tool-tag tag-anthropic" style="font-size:14px; vertical-align:middle;">Anthropic</span> Claude Code のセットアップ</h2>
     <p class="lead" style="font-size:16px;">ターミナル版（メイン）とVS Code拡張の2通り。</p>
     <div class="grid-2">
