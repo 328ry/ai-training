@@ -604,7 +604,65 @@
     </div>
   </div>
 
-  <!-- ===== SLIDE 18: Section Title ===== -->
+  <!-- ===== SLIDE 18: Web制作 ===== -->
+  <div class="slide">
+    <h2>Web制作 × エージェント</h2>
+    <p class="lead">エンジニアじゃなくても、AIエージェントに指示を出すだけでWebサイトが作れる時代</p>
+    <div class="vs">
+      <div class="vs-box">
+        <h4>今までのWeb制作</h4>
+        <ul>
+          <li>HTML / CSSの知識が必要</li>
+          <li>外注すると30〜100万円</li>
+          <li>修正のたびに追加費用</li>
+          <li>完成まで1〜3ヶ月</li>
+        </ul>
+      </div>
+      <div class="vs-arrow">→</div>
+      <div class="vs-box highlight">
+        <h4 style="color: var(--accent);">エージェントでWeb制作</h4>
+        <ul>
+          <li><strong>日本語で「こんなサイト作って」</strong></li>
+          <li>コードは全部AIが書く</li>
+          <li>修正も「ここ変えて」で即反映</li>
+          <li><strong>最短数時間で公開まで</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <p><strong>実際にこの資料もAIエージェントが作っています。</strong>上田が日本語で指示 → AIがコードを書いて完成。</p>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 19: Web制作 prompt ===== -->
+  <div class="slide">
+    <h2>Web制作 × エージェント — <span class="accent">指示例</span></h2>
+    <div class="prompt-card">
+      <div class="prompt-label">整骨院のホームページを作る</div>
+      <div class="prompt-text">以下の整骨院のホームページを作ってください。
+
+【院名】○○整骨院
+【エリア】東京都○○区
+【特徴】交通事故治療に強い / 駅徒歩3分 / 夜20時まで
+【必要なページ】トップ / 施術メニュー / 料金 / アクセス / お問合せ
+【デザイン】清潔感のある白ベース。スマホ対応。写真は仮画像でOK</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+    <div class="prompt-card">
+      <div class="prompt-label">既存サイトの修正</div>
+      <div class="prompt-text">このサイトの以下を修正してください。
+
+1. ヘッダーの電話番号を 03-XXXX-XXXX に変更
+2. 料金表に「交通事故治療: 自己負担0円」を追加
+3. フッターに営業時間を追加（平日9-20時、土曜9-13時）</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+    <div class="info-box">
+      <p><strong>ポイント:</strong> 完璧な指示じゃなくてOK。まず作ってもらって「ここ直して」を繰り返す。上田もこのやり方でサイトを作ってます。</p>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 20: Section Title ===== -->
   <div class="slide section-title">
     <div class="section-num">04</div>
     <div class="section-title-text">エージェントへの指示の出し方</div>
@@ -871,10 +929,11 @@
     { slide: 1, title: '01 — 対話型 → エージェント型へ' },
     { slide: 6, title: '02 — 3つのAIエージェント' },
     { slide: 11, title: '03 — メンバー別の活用シーン' },
-    { slide: 18, title: '04 — エージェントへの指示の出し方' },
-    { slide: 21, title: '05 — セットアップ手順' },
-    { slide: 26, title: '06 — セキュリティ・ルール' },
-    { slide: 29, title: 'まとめ' }
+    { slide: 18, title: 'Web制作 × エージェント' },
+    { slide: 20, title: '04 — エージェントへの指示の出し方' },
+    { slide: 23, title: '05 — セットアップ手順' },
+    { slide: 28, title: '06 — セキュリティ・ルール' },
+    { slide: 31, title: 'まとめ' }
   ];
   sectionTitles.forEach(function(s) {
     tocHTML += '<div class="toc-item" data-slide="' + s.slide + '"><span class="toc-num">' + (s.slide + 1) + '</span>' + s.title + '</div>';
