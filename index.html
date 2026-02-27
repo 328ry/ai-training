@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI活用ガイド | 社内研修資料 | 株式会社Opus.net</title>
+  <title>AIエージェント導入ガイド | 社内研修資料 | 株式会社Opus.net</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
 
@@ -51,7 +51,7 @@
       color: #fff; text-align: center; padding: 40px 40px;
     }
     .cover-label { font-size: 13px; letter-spacing: 6px; text-transform: uppercase; opacity: 0.7; margin-bottom: 24px; }
-    .cover h1 { font-size: 38px; font-weight: 700; margin-bottom: 8px; letter-spacing: 2px; }
+    .cover h1 { font-size: 36px; font-weight: 700; margin-bottom: 8px; letter-spacing: 2px; }
     .cover-sub { font-size: 18px; font-weight: 300; opacity: 0.85; margin-bottom: 48px; }
     .cover-line { width: 60px; height: 3px; background: var(--accent); margin: 32px auto; }
     .cover-meta { font-size: 13px; opacity: 0.6; line-height: 2; }
@@ -98,9 +98,21 @@
     /* ===== Use-case Grid ===== */
     .usecase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0; }
     .usecase-card { background: var(--bg-sub); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
-    .usecase-card .card-icon { font-size: 28px; margin-bottom: 8px; }
     .usecase-card .card-title { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
     .usecase-card .card-desc { font-size: 13px; color: var(--text-sub); line-height: 1.7; }
+
+    /* ===== Tool Card ===== */
+    .tool-card { border: 2px solid var(--border); border-radius: 14px; padding: 24px; margin: 16px 0; background: #fff; }
+    .tool-card.recommended { border-color: var(--accent); box-shadow: 0 2px 12px rgba(237,137,54,0.12); }
+    .tool-card .tool-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .tool-card .tool-name { font-size: 18px; font-weight: 700; color: var(--primary); }
+    .tool-card .tool-tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+    .tool-tag.openai { background: #E8F5E9; color: #2E7D32; }
+    .tool-tag.anthropic { background: #FFF3E0; color: #E65100; }
+    .tool-tag.google { background: #E3F2FD; color: #1565C0; }
+    .tool-card .tool-desc { font-size: 13px; color: var(--text-sub); margin-bottom: 12px; }
+    .tool-card .tool-meta { display: flex; gap: 20px; flex-wrap: wrap; font-size: 12px; color: var(--text-sub); }
+    .tool-card .tool-meta span { display: flex; align-items: center; gap: 4px; }
 
     /* ===== Member Badge ===== */
     .member-badge { display: inline-block; padding: 3px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #fff; margin-right: 4px; }
@@ -124,11 +136,24 @@
     .step-item .step-title { font-weight: 700; color: var(--primary); margin-bottom: 4px; }
     .step-item .step-desc { font-size: 13px; color: var(--text-sub); }
 
-    /* ===== Important Rule ===== */
+    /* ===== Rule Box ===== */
     .rule-box { background: #faf5ff; border: 2px solid #9F7AEA; border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
     .rule-box .rule-title { font-size: 15px; font-weight: 700; color: #6B46C1; margin-bottom: 12px; }
     .rule-box ul { padding-left: 20px; }
     .rule-box li { margin: 6px 0; font-size: 13px; }
+
+    /* ===== VS ===== */
+    .vs-container { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: start; margin: 20px 0; }
+    .vs-box { background: var(--bg-sub); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .vs-box .vs-title { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 10px; text-align: center; }
+    .vs-box ul { padding-left: 18px; font-size: 13px; }
+    .vs-box li { margin: 6px 0; }
+    .vs-divider { display: flex; align-items: center; font-size: 20px; font-weight: 700; color: var(--accent); padding-top: 32px; }
+
+    /* ===== Flow ===== */
+    .flow { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 24px 0; flex-wrap: wrap; }
+    .flow-step { background: var(--primary); color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 500; text-align: center; }
+    .flow-arrow { color: var(--accent); font-size: 20px; font-weight: 700; }
 
     /* ===== Misc ===== */
     ul, ol { padding-left: 24px; margin: 8px 0; }
@@ -159,10 +184,12 @@
       .sidebar-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); z-index: 998; }
       .sidebar-overlay.open { display: block; }
       .content { padding: 40px 20px; padding-top: 60px; }
-      .cover h1 { font-size: 28px; }
+      .cover h1 { font-size: 26px; }
       .cover-sub { font-size: 15px; }
       .summary-grid { grid-template-columns: 1fr; }
       .usecase-grid { grid-template-columns: 1fr; }
+      .vs-container { grid-template-columns: 1fr; }
+      .vs-divider { justify-content: center; padding-top: 0; }
     }
   </style>
 </head>
@@ -170,9 +197,9 @@
 
 <!-- ========== COVER ========== -->
 <div class="cover">
-  <p class="cover-label">AI Training Guide</p>
-  <h1>AI活用ガイド</h1>
-  <p class="cover-sub">Opus.net 社内研修資料</p>
+  <p class="cover-label">AI Agent Training</p>
+  <h1>AIエージェント導入ガイド</h1>
+  <p class="cover-sub">チャットの次へ — 仕事を任せるAIの使い方</p>
   <div class="cover-badge">3/2 全員研修</div>
   <div class="cover-line"></div>
   <div class="cover-meta">
@@ -194,14 +221,14 @@
   <nav class="toc">
     <h2>目次</h2>
     <ol>
-      <li><a href="#sec1">なぜ今AIなのか</a></li>
-      <li><a href="#sec2">AIツール比較 & 予算</a></li>
-      <li><a href="#sec3">松本さん — 経営 × AI</a></li>
-      <li><a href="#sec4">栗原さん — 映像 × AI</a></li>
-      <li><a href="#sec5">常田さん — 営業 × AI</a></li>
-      <li><a href="#sec6">すぐ使えるプロンプト集</a></li>
-      <li><a href="#sec7">ハンズオン手順</a></li>
-      <li><a href="#sec8">セキュリティ・注意事項</a></li>
+      <li><a href="#sec1">対話型 → エージェント型へ</a></li>
+      <li><a href="#sec2">3つのAIエージェント</a></li>
+      <li><a href="#sec3">松本さん — 経営 × エージェント</a></li>
+      <li><a href="#sec4">栗原さん — 映像 × エージェント</a></li>
+      <li><a href="#sec5">常田さん — 営業 × エージェント</a></li>
+      <li><a href="#sec6">エージェントへの指示の出し方</a></li>
+      <li><a href="#sec7">セットアップ手順</a></li>
+      <li><a href="#sec8">セキュリティ・ルール</a></li>
     </ol>
   </nav>
 </aside>
@@ -209,571 +236,615 @@
 <!-- ========== MAIN CONTENT ========== -->
 <div class="content">
 
-  <!-- ===== 1. なぜ今AIなのか ===== -->
+  <!-- ===== 1. 対話型 → エージェント型 ===== -->
   <div class="section" id="sec1">
-    <h2 class="section-title"><span class="section-number">1</span>なぜ今AIなのか</h2>
+    <h2 class="section-title"><span class="section-number">1</span>対話型 → エージェント型へ</h2>
 
-    <div class="summary-grid">
-      <div class="summary-card">
-        <div class="label">月額投資</div>
-        <div class="value">3,000<span class="unit">円/人</span></div>
-        <div class="note">1日あたり約100円</div>
+    <p>みんなが使っているChatGPTやClaudeは<strong>「対話型AI」</strong>です。質問すると答えが返ってくる。<br>
+    今回導入するのは<strong>「エージェント型AI」</strong>。質問ではなく、<strong>仕事そのものを任せる</strong>AIです。</p>
+
+    <h3>何が違うのか</h3>
+    <div class="vs-container">
+      <div class="vs-box">
+        <div class="vs-title">対話型AI（今まで）</div>
+        <ul>
+          <li>1回質問 → 1回回答</li>
+          <li>自分で考えて、AIに聞く</li>
+          <li>ファイルの編集はできない</li>
+          <li>途中で止まったら自分で再指示</li>
+          <li>「これ書いて」→ 回答をコピペ</li>
+        </ul>
       </div>
-      <div class="summary-card">
-        <div class="label">対象メンバー</div>
-        <div class="value">4<span class="unit">名</span></div>
-        <div class="note">松本・上田・栗原・常田</div>
-      </div>
-      <div class="summary-card accent">
-        <div class="label">ゴール</div>
-        <div class="value" style="font-size: 20px;">全員が<br>使える状態</div>
-        <div class="note">上田だけ → 全員の武器に</div>
+      <div class="vs-divider">→</div>
+      <div class="vs-box" style="border-color: var(--accent);">
+        <div class="vs-title" style="color: var(--accent);">エージェント型AI（これから）</div>
+        <ul>
+          <li><strong>指示を出すと、自分で考えて最後まで実行</strong></li>
+          <li>ファイルを読んで、編集して、保存する</li>
+          <li>途中で判断して、次のステップに進む</li>
+          <li>Webを調べて情報を集めることもできる</li>
+          <li>「この仕事やっておいて」→ <strong>完了まで自走</strong></li>
+        </ul>
       </div>
     </div>
 
-    <h3>導入の目的</h3>
-    <p>AIツールを全員の日常業務に組み込み、<strong>一人ひとりの生産性を底上げする</strong>のが目的です。</p>
-    <p>SNS事業・事故なび事業・Web制作事業、どの領域でも「文章を書く」「情報を整理する」「アイデアを出す」場面があります。そこにAIを使えば、<strong>今までの半分の時間で、より質の高いアウトプット</strong>が出せます。</p>
+    <h3>具体例で見る違い</h3>
+    <table>
+      <thead>
+        <tr><th>やりたいこと</th><th>対話型（今まで）</th><th>エージェント型（これから）</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>営業メールを10社に送る</strong></td>
+          <td>1社分の文面を生成 → コピペ → 次の1社分を依頼…を繰り返す</td>
+          <td>「このリストの10社に営業メールを作って」→ 10社分一気に完成</td>
+        </tr>
+        <tr>
+          <td><strong>提案書を作る</strong></td>
+          <td>構成案を聞く → 各セクションを1つずつ依頼 → 自分でつなげる</td>
+          <td>「この案件の提案書を作って」→ 構成から本文まで一気通貫で作成</td>
+        </tr>
+        <tr>
+          <td><strong>競合を調べる</strong></td>
+          <td>1社ずつ「○○について教えて」と質問を繰り返す</td>
+          <td>「この業界の競合5社を調べて比較表にして」→ Web検索して表にまとめてくれる</td>
+        </tr>
+        <tr>
+          <td><strong>データを整理する</strong></td>
+          <td>データを貼り付けて「整理して」→ 結果をコピペ</td>
+          <td>「このファイルのデータを整理して保存して」→ ファイルを直接編集してくれる</td>
+        </tr>
+      </tbody>
+    </table>
 
     <div class="rule-box">
       <div class="rule-title">大前提：AIを使うことが目的ではない</div>
       <ul>
-        <li><strong>AIは道具</strong>です。使うこと自体に価値はありません</li>
-        <li>目的は<strong>「業務の成果を出すこと」</strong>。AIはそのための手段のひとつ</li>
-        <li>AIを使って時間が浮いたら、<strong>本来やるべき仕事（営業・企画・お客様対応）に時間を使う</strong></li>
-        <li>「AIで何ができるか」ではなく<strong>「自分の仕事で何を楽にしたいか」</strong>から考える</li>
-        <li>使わなくていい場面で無理に使う必要はない。<strong>効果がある場面だけ</strong>使えばOK</li>
+        <li><strong>AIは道具</strong>。使うこと自体に価値はない</li>
+        <li>目的は<strong>「自分の仕事の成果を出すこと」</strong>。エージェントはその手段</li>
+        <li>エージェントで時間が浮いたら、<strong>営業・企画・お客様対応</strong>に時間を使う</li>
+        <li>使わなくていい場面で無理に使わない。<strong>効果がある場面だけ</strong>使えばOK</li>
       </ul>
     </div>
 
-    <h3>上田が実際にAIで変わったこと</h3>
+    <h3>上田が実際にエージェントでやっていること</h3>
     <div class="usecase-grid">
       <div class="usecase-card">
-        <div class="card-title">提案書の作成</div>
-        <div class="card-desc">以前は2時間 → <strong>AIで20分</strong>。構成・文面のたたき台をAIに作らせ、自分は内容の調整に集中</div>
+        <div class="card-title">提案書を丸ごと作成</div>
+        <div class="card-desc">「Roenさん向けの提案書を作って」→ エージェントが情報を整理し、HTML形式の提案書を<strong>構成から本文まで一気に生成</strong></div>
       </div>
       <div class="usecase-card">
-        <div class="card-title">営業DMの作成</div>
-        <div class="card-desc">相手の店舗情報を入力 → <strong>3パターンの文面を自動生成</strong>。0から書く手間がなくなった</div>
+        <div class="card-title">CRMデータの一括処理</div>
+        <div class="card-desc">3,000件超の整骨院データの正規化・表記ゆれ統一・欠損データの調査。<strong>手作業なら数日 → エージェントで数時間</strong></div>
       </div>
       <div class="usecase-card">
-        <div class="card-title">競合リサーチ</div>
-        <div class="card-desc">Webで1つずつ調べていた作業 → AIに<strong>「この業界の競合を分析して」で一発</strong></div>
+        <div class="card-title">毎朝の工程表を自動生成</div>
+        <div class="card-desc">「おはよう」と言うだけで、進行中のタスクを読み取って<strong>今日の工程表を自動作成</strong>。スキル機能で完全自動化</div>
       </div>
-    </div>
-
-    <h3>AIにできること / できないこと</h3>
-    <table>
-      <thead>
-        <tr><th style="width:50%">AIが得意なこと</th><th style="width:50%">AIにはできないこと</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>文章の下書き・要約・リライト</td><td>最終判断・意思決定</td></tr>
-        <tr><td>情報の整理・分類・比較表の作成</td><td>人間関係の構築・交渉</td></tr>
-        <tr><td>アイデア出し・ブレスト相手</td><td>クリエイティブの最終的な「味」の仕上げ</td></tr>
-        <tr><td>データの分析・傾向の把握</td><td>社内の空気感・暗黙知の理解</td></tr>
-        <tr><td>定型業務の効率化</td><td>正確な事実の保証（嘘をつくことがある）</td></tr>
-      </tbody>
-    </table>
-
-    <div class="info-box">
-      <p><strong>ポイント:</strong> AIは「優秀なアシスタント」です。指示を出すのも、最終チェックするのも自分。あくまで<strong>自分の仕事を加速させるパートナー</strong>として使いましょう。</p>
     </div>
   </div>
 
-  <!-- ===== 2. AIツール比較 ===== -->
+  <!-- ===== 2. 3つのAIエージェント ===== -->
   <div class="section" id="sec2">
-    <h2 class="section-title"><span class="section-number">2</span>AIツール比較 & 予算プラン</h2>
+    <h2 class="section-title"><span class="section-number">2</span>3つのAIエージェント</h2>
 
-    <p>月3,000円の予算で使えるAIツール3つを比較します。どれを選んでも日常業務は十分カバーできます。</p>
+    <p>使えるエージェントツールは3つ。それぞれ<strong>中身のAIが違い</strong>、得意分野が異なります。</p>
 
-    <h3>主要ツール比較</h3>
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-name">Claude Code</div>
+        <span class="tool-tag anthropic">Anthropic</span>
+      </div>
+      <div class="tool-desc">Anthropic社のClaude（クロード）を搭載したエージェント。<strong>長い文章の処理・資料作成・データ分析が最も得意</strong>。上田がメインで使っているツール。VS Codeの中で動く。</div>
+      <div class="tool-meta">
+        <span><strong>月額:</strong> MAX $100（約15,000円）/ Pro $20（約3,000円）</span>
+        <span><strong>動作環境:</strong> VS Code 拡張 or ターミナル</span>
+      </div>
+      <table style="margin-top: 12px;">
+        <thead><tr><th>強み</th><th>向いているタスク</th></tr></thead>
+        <tbody>
+          <tr><td>日本語の自然さが抜群</td><td>提案書・メール・報告書などの文書作成</td></tr>
+          <tr><td>長い文章を正確に読める</td><td>契約書・資料の要約・分析</td></tr>
+          <tr><td>指示書（スキル）を覚えさせられる</td><td>繰り返し業務の自動化</td></tr>
+          <tr><td>ファイルを直接読み書きできる</td><td>データ整理・一括処理</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-name">Codex</div>
+        <span class="tool-tag openai">OpenAI</span>
+      </div>
+      <div class="tool-desc">OpenAI社のGPTを搭載したエージェント。<strong>タスクをサンドボックス（隔離環境）で安全に実行</strong>するのが特徴。ChatGPT Plusの契約があれば使える。</div>
+      <div class="tool-meta">
+        <span><strong>月額:</strong> ChatGPT Plus $20（約3,000円）に含まれる</span>
+        <span><strong>動作環境:</strong> Web（chatgpt.com）/ VS Code</span>
+      </div>
+      <table style="margin-top: 12px;">
+        <thead><tr><th>強み</th><th>向いているタスク</th></tr></thead>
+        <tbody>
+          <tr><td>Webブラウザからも使える</td><td>エンジニア以外でもアクセスしやすい</td></tr>
+          <tr><td>安全な実行環境</td><td>データ処理・ファイル操作を安心して任せられる</td></tr>
+          <tr><td>ChatGPT Plus契約で使える</td><td>追加費用なしで始められる</td></tr>
+          <tr><td>画像生成（DALL-E）も内蔵</td><td>サムネイル・SNS画像の作成</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-name">Antigravity（Jules）</div>
+        <span class="tool-tag google">Google</span>
+      </div>
+      <div class="tool-desc">Google社のGeminiを搭載したVS Code拡張。<strong>Google Workspace（Gmail, Drive, Docs, Sheets）との連携</strong>が強み。社内のGoogleツールと直接つながる。</div>
+      <div class="tool-meta">
+        <span><strong>月額:</strong> 無料〜 Gemini Advanced 2,900円</span>
+        <span><strong>動作環境:</strong> VS Code 拡張</span>
+      </div>
+      <table style="margin-top: 12px;">
+        <thead><tr><th>強み</th><th>向いているタスク</th></tr></thead>
+        <tbody>
+          <tr><td>Gmail / Driveと直接連携</td><td>メール処理・ファイル整理</td></tr>
+          <tr><td>Google検索ベースの情報収集</td><td>リサーチ・市場調査</td></tr>
+          <tr><td>無料から始められる</td><td>まずは試してみたい人向け</td></tr>
+          <tr><td>スプレッドシートと連携</td><td>データ集計・レポート作成</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>どれを選べばいい？</h3>
+    <div class="highlight-box">
+      <p><strong>迷ったらまずCodex（ChatGPT Plus）でOK。</strong></p>
+      <p>月3,000円で使えて、Webブラウザからアクセスできるので一番始めやすい。<br>
+      慣れてきたらClaude CodeやAntigravityも試して、自分に合うものを選べばOKです。</p>
+    </div>
+
     <table>
       <thead>
-        <tr><th>項目</th><th>ChatGPT Plus</th><th>Claude Pro</th><th>Gemini Advanced</th></tr>
+        <tr><th>比較項目</th><th>Claude Code</th><th>Codex</th><th>Antigravity</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td><strong>月額</strong></td>
-          <td>約3,000円（$20）</td>
-          <td>約3,000円（$20）</td>
-          <td>2,900円</td>
-        </tr>
-        <tr>
-          <td><strong>得意なこと</strong></td>
-          <td>汎用性が高い<br>画像生成もできる<br>プラグインが豊富</td>
-          <td>長い文章の読解・要約<br>日本語が自然<br>丁寧な回答</td>
-          <td>Google連携（Gmail, Drive, Docs）<br>検索と組み合わせた回答</td>
-        </tr>
-        <tr>
-          <td><strong>こんな人向け</strong></td>
-          <td>初めてAIを使う人<br>色々試したい人</td>
-          <td>文章作成・資料作りが多い人</td>
-          <td>Gmail / Googleドキュメントをよく使う人</td>
-        </tr>
-        <tr>
-          <td><strong>無料版との違い</strong></td>
-          <td>最新モデル使い放題<br>ファイルアップロード</td>
-          <td>回数制限が大幅緩和<br>長い文章も処理可能</td>
-          <td>最新Geminiモデル<br>2TBストレージ</td>
-        </tr>
+        <tr><td><strong>始めやすさ</strong></td><td>VS Code必要</td><td><strong>Webだけで使える</strong></td><td>VS Code必要</td></tr>
+        <tr><td><strong>日本語の質</strong></td><td><strong>最も自然</strong></td><td>良い</td><td>普通</td></tr>
+        <tr><td><strong>文書作成</strong></td><td><strong>最強</strong></td><td>良い</td><td>普通</td></tr>
+        <tr><td><strong>Google連携</strong></td><td>なし</td><td>なし</td><td><strong>最強</strong></td></tr>
+        <tr><td><strong>月額（最安）</strong></td><td>約3,000円〜</td><td>約3,000円</td><td>無料〜</td></tr>
       </tbody>
     </table>
-
-    <h3>おすすめプラン</h3>
-    <div class="highlight-box">
-      <p><strong>結論: まずは全員ChatGPT Plusで統一がおすすめ</strong></p>
-      <p>理由:</p>
-      <ul style="margin-top: 4px;">
-        <li>情報が一番多い（困ったときにネットで解決策が見つかりやすい）</li>
-        <li>画像生成もできて、栗原さんのサムネ作成にも使える</li>
-        <li>全員同じツールだと社内で教え合いやすい</li>
-      </ul>
-      <p style="margin-top: 8px;">慣れてきたら、各自に合ったツールに乗り換えてOKです。</p>
-    </div>
-
-    <h3>無料でも使えるの？</h3>
-    <div class="info-box">
-      <p>無料版でも基本的な質問はできますが、<strong>回数制限が厳しく</strong>仕事では足りなくなります。</p>
-      <p>有料版（月3,000円）にすると: 最新のAIモデルが使い放題、ファイルアップロード可能、長い文章も処理できるようになります。</p>
-    </div>
   </div>
 
   <!-- ===== 3. 松本さん向け ===== -->
   <div class="section" id="sec3">
-    <h2 class="section-title"><span class="section-number">3</span><span class="member-badge matsumoto">松本さん</span>経営 × AI</h2>
+    <h2 class="section-title"><span class="section-number">3</span><span class="member-badge matsumoto">松本さん</span>経営 × エージェント</h2>
 
-    <p>経営判断の壁打ち相手、方針文書の下書き、データの分析・可視化など、<strong>「考える」仕事のスピードを上げる</strong>使い方がメインです。</p>
+    <p>経営判断の壁打ち・方針書の作成・データ分析など、<strong>「考える → まとめる → 判断する」のサイクルをエージェントに手伝わせる</strong>イメージです。</p>
 
-    <h3>活用シーン</h3>
+    <h3>エージェントに任せられること</h3>
     <div class="usecase-grid">
       <div class="usecase-card">
-        <div class="card-title">経営判断の壁打ち</div>
-        <div class="card-desc">新規事業のアイデアや方針を相談。メリット・デメリット・リスクを整理してくれる。一人で悩む時間を削減</div>
+        <div class="card-title">事業方針書の一発作成</div>
+        <div class="card-desc">「来期のSNS事業の方針書を作って。こういう方向性で」→ エージェントが<strong>構成から本文まで通しで作成</strong>。自分は最終チェックだけ</div>
       </div>
       <div class="usecase-card">
-        <div class="card-title">データ分析・レポート</div>
-        <div class="card-desc">売上データやCRMのデータを貼り付けて「傾向と改善点を教えて」で分析。グラフの読み方も解説してくれる</div>
+        <div class="card-title">売上データの分析レポート</div>
+        <div class="card-desc">「このデータを分析して、傾向と改善提案をレポートにして」→ <strong>ファイルを読み込んで分析・レポート化まで一気に</strong></div>
       </div>
       <div class="usecase-card">
-        <div class="card-title">社内文書・方針書の作成</div>
-        <div class="card-desc">全社メール、事業方針書、議事録の整理。要点だけ伝えればAIが文書化してくれる</div>
+        <div class="card-title">会議の要点整理 + アクション抽出</div>
+        <div class="card-desc">走り書きメモを渡すだけ → <strong>議事録形式にまとめて、次のアクションまで提案</strong></div>
       </div>
     </div>
 
-    <h3>すぐ使えるプロンプト例</h3>
-
+    <h3>エージェントへの指示例</h3>
     <div class="prompt-card">
-      <div class="prompt-label">経営判断の壁打ち</div>
-      <div class="prompt-text">以下の事業アイデアについて、メリット・デメリット・リスクを整理してください。
-判断材料として使いたいので、結論も出してください。
+      <div class="prompt-label">事業方針書の作成</div>
+      <div class="prompt-text">来期のSNS運用事業の方針書を作ってください。
 
-【アイデア】
-（ここに相談内容を入力）
+以下の方向性で:
+- 夜職メインから、整骨院・パーソナルジムにも横展開
+- 3月までに3社契約、月商100万を目指す
+- メタ広告の運用支援を新サービスとして追加
 
-【前提条件】
-・会社規模: 6名のIT・マーケティング会社
-・現在の事業: SNS運用代行、交通事故マッチング、Web制作</div>
+対象: 社内共有（松本・上田・栗原・常田）
+形式: A4で2〜3ページ程度。簡潔に。</div>
       <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
     </div>
 
     <div class="prompt-card">
       <div class="prompt-label">データ分析</div>
-      <div class="prompt-text">以下のデータから傾向と改善点を分析してください。
-経営者として判断に使いたいので、数字の意味を分かりやすく説明してください。
+      <div class="prompt-text">添付のスプレッドシートデータを分析してください。
 
-【データ】
-（ここにデータを貼り付け）</div>
-      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
-    </div>
+知りたいこと:
+- 先月との比較で何が変わったか
+- 注目すべき数字はどれか
+- 改善すべきポイントはどこか
 
-    <div class="prompt-card">
-      <div class="prompt-label">方針文書の作成</div>
-      <div class="prompt-text">以下の要点をもとに、社内向けの方針書を作成してください。
-全員に伝わるように、簡潔で具体的な文章にしてください。
-
-【要点】
-・（箇条書きで要点を入力）
-
-【対象】
-・社員6名に向けた文書</div>
+経営者として判断に使いたいので、結論を先に書いてください。</div>
       <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
     </div>
   </div>
 
   <!-- ===== 4. 栗原さん向け ===== -->
   <div class="section" id="sec4">
-    <h2 class="section-title"><span class="section-number">4</span><span class="member-badge kurihara">栗原さん</span>映像制作 × AI</h2>
+    <h2 class="section-title"><span class="section-number">4</span><span class="member-badge kurihara">栗原さん</span>映像制作 × エージェント</h2>
 
-    <p>撮影・編集の「前後の工程」でAIを活用すると、<strong>企画〜仕上げまでのスピードが大幅に上がります</strong>。撮影・編集そのものは栗原さんのスキルが活きる部分です。</p>
+    <p>撮影・編集は栗原さんの領域。エージェントは<strong>その前後の工程（企画・台本・テロップ・投稿文）を一気に片付ける</strong>ために使います。</p>
 
-    <h3>活用シーン</h3>
+    <h3>エージェントに任せられること</h3>
     <div class="usecase-grid">
       <div class="usecase-card">
-        <div class="card-title">台本・構成案の作成</div>
-        <div class="card-desc">「バーのTikTok動画、15秒、来店促進が目的」→ 構成案を3パターン出してくれる。0から考える時間を短縮</div>
+        <div class="card-title">台本パッケージの一括生成</div>
+        <div class="card-desc">「今月分の台本8本を一気に作って」→ 店舗情報を渡せば、<strong>構成・セリフ・テロップ案まで8本分まとめて出力</strong></div>
       </div>
       <div class="usecase-card">
-        <div class="card-title">テロップ・キャッチコピー</div>
-        <div class="card-desc">動画のシーンに合うテロップ案を大量に出してもらい、その中からピックアップ。コピーのネタ切れ防止</div>
+        <div class="card-title">投稿文 + ハッシュタグの自動生成</div>
+        <div class="card-desc">動画の内容を伝えると → <strong>投稿文・ハッシュタグ・投稿時間の提案</strong>までセットで作成</div>
       </div>
       <div class="usecase-card">
-        <div class="card-title">サムネイル文言</div>
-        <div class="card-desc">TikTokやInstagramのサムネイルに載せるキャッチコピー案。クリック率を意識した案を出せる</div>
+        <div class="card-title">トレンドリサーチ</div>
+        <div class="card-desc">「バー系TikTokの最近のトレンドを調べて」→ Web検索して<strong>流行りの構成・BGM・演出をまとめて</strong>くれる</div>
       </div>
       <div class="usecase-card">
-        <div class="card-title">投稿文・ハッシュタグ</div>
-        <div class="card-desc">動画の内容を伝えると、投稿文と最適なハッシュタグセットを作ってくれる</div>
+        <div class="card-title">撮影指示書の作成</div>
+        <div class="card-desc">台本をもとに「撮影時のカメラアングル・ライティング・必要な小道具」を<strong>指示書としてまとめてくれる</strong></div>
       </div>
     </div>
 
-    <h3>すぐ使えるプロンプト例</h3>
-
+    <h3>エージェントへの指示例</h3>
     <div class="prompt-card">
-      <div class="prompt-label">TikTok台本の作成</div>
-      <div class="prompt-text">TikTok動画の台本を3パターン作ってください。
+      <div class="prompt-label">今月分の台本一括作成</div>
+      <div class="prompt-text">以下のお店のTikTok動画台本を8本作ってください。
 
 【お店の情報】
-・業態:（バー / コンセプトカフェ / etc.）
-・お店の名前:
-・お店の特徴:
-・エリア:
+・店名: ふららぼ
+・業態: コンセプトカフェ
+・エリア: 東京
+・特徴: （お店の特徴を入力）
+・ターゲット: 20代男女
 
-【動画の条件】
-・尺: 15秒 / 30秒 / 60秒
-・目的: 来店促進 / 認知拡大 / フォロワー獲得
-・ターゲット: 20代男性 / 20代女性 / etc.
-
-各パターンにシーン割り（何秒目に何を映すか）も入れてください。</div>
+【条件】
+・尺: 15〜30秒
+・目的: 来店促進 + フォロワー獲得
+・各台本にシーン割り（何秒目に何を映すか）を入れる
+・テロップ案も各シーンにつける
+・8本の内容がバラけるように（紹介系、裏側系、スタッフ系、メニュー系など）</div>
       <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
     </div>
 
     <div class="prompt-card">
-      <div class="prompt-label">テロップ案の大量出し</div>
-      <div class="prompt-text">以下のTikTok動画のシーンに合うテロップを、各シーン5案ずつ出してください。
-バズりやすい・目を引く表現を優先してください。
-
-【シーン1】お店の外観が映る（3秒）
-【シーン2】ドリンクを作っている（5秒）
-【シーン3】お客さんが楽しんでいる（4秒）
-【シーン4】お店のロゴ + 情報（3秒）</div>
-      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
-    </div>
-
-    <div class="prompt-card">
-      <div class="prompt-label">投稿文 + ハッシュタグ</div>
+      <div class="prompt-label">投稿文とハッシュタグ</div>
       <div class="prompt-text">以下のTikTok動画の投稿文とハッシュタグを作ってください。
 
 【動画の内容】
-（動画の内容を1〜2文で説明）
+（内容を1〜2文で説明）
 
 【お店の情報】
 ・名前:
 ・エリア:
-・業態:
 
 【条件】
-・投稿文は3行以内で短く
-・ハッシュタグは10〜15個
-・エリア系のハッシュタグも入れる</div>
+・投稿文は3行以内
+・ハッシュタグ10〜15個（エリア系も含める）
+・投稿のベストタイミングも提案して</div>
       <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
     </div>
   </div>
 
   <!-- ===== 5. 常田さん向け ===== -->
   <div class="section" id="sec5">
-    <h2 class="section-title"><span class="section-number">5</span><span class="member-badge tsuneda">常田さん</span>営業 × AI</h2>
+    <h2 class="section-title"><span class="section-number">5</span><span class="member-badge tsuneda">常田さん</span>営業 × エージェント</h2>
 
-    <p>事故なび事業の営業活動で、<strong>メール・トーク準備・ヒアリング整理</strong>にAIを活用します。営業の「準備と振り返り」の時間を短縮して、お客様との対話に集中できます。</p>
+    <p>事故なびの営業で、<strong>準備・フォロー・データ整理をエージェントに任せて、営業活動そのものに集中する</strong>のがゴールです。</p>
 
-    <h3>活用シーン</h3>
+    <h3>エージェントに任せられること</h3>
     <div class="usecase-grid">
       <div class="usecase-card">
-        <div class="card-title">テレアポの事前準備</div>
-        <div class="card-desc">訪問先の整骨院情報をAIに入れて「ポイントを整理して」→ 10分で準備完了。トークの引き出しが増える</div>
+        <div class="card-title">訪問先リサーチの自動化</div>
+        <div class="card-desc">「明日訪問するこの3院について調べて」→ Web検索して<strong>各院の特徴・口コミ・強み・トーク時の注意点</strong>をまとめてくれる</div>
       </div>
       <div class="usecase-card">
-        <div class="card-title">メール文面の作成</div>
-        <div class="card-desc">初回アプローチ・フォローアップ・お礼メールなど、要点を伝えるだけでAIが文面を作成</div>
+        <div class="card-title">営業メールの一括作成</div>
+        <div class="card-desc">「このリストの院にフォローメールを作って」→ <strong>院ごとにカスタマイズされたメール文面を一括生成</strong></div>
       </div>
       <div class="usecase-card">
-        <div class="card-title">商談メモの整理</div>
-        <div class="card-desc">走り書きのメモを貼り付ければ、要点を整理して次のアクションまで提案してくれる</div>
+        <div class="card-title">商談メモ → CRM入力用に変換</div>
+        <div class="card-desc">走り書きメモを渡すと → <strong>整理された商談記録 + 次のアクション + CRM入力情報</strong>を出してくれる</div>
       </div>
       <div class="usecase-card">
-        <div class="card-title">トークスクリプトの改善</div>
-        <div class="card-desc">「こう言ったらこう返された」→ AIに相談して切り返しトークを準備</div>
+        <div class="card-title">断られたときの切り返し相談</div>
+        <div class="card-desc">「こう言われて断られた」→ <strong>切り返しトーク案を複数パターン</strong>出してくれる。営業ロープレ代わりにも使える</div>
       </div>
     </div>
 
-    <h3>すぐ使えるプロンプト例</h3>
-
+    <h3>エージェントへの指示例</h3>
     <div class="prompt-card">
-      <div class="prompt-label">テレアポ準備（営業前の10分）</div>
-      <div class="prompt-text">これから以下の整骨院に電話営業をします。
-効果的なトークのポイントを整理してください。
+      <div class="prompt-label">訪問前の10分リサーチ</div>
+      <div class="prompt-text">明日の訪問先について調べてください。
 
-【整骨院の情報】
-・院名:
-・エリア:
-・特徴:（交通事故対応あり / スポーツ特化 / etc.）
-
-【提案する内容】
-・事故なびへの登録メリット
-・成果報酬型なのでリスクなし
+【訪問先】
+1. ○○整骨院（東京都○○区）
+2. △△整骨院（埼玉県○○市）
 
 【知りたいこと】
-・最初の一言をどう切り出すか
-・よくある断り文句と切り返し方</div>
+- 院の特徴・強み
+- Googleの口コミで多い内容
+- 交通事故対応をやっているか
+- トーク時に触れると良さそうなポイント
+
+それぞれ簡潔にまとめてください。</div>
       <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
     </div>
 
     <div class="prompt-card">
-      <div class="prompt-label">フォローアップメール</div>
-      <div class="prompt-text">先日商談した整骨院へのフォローアップメールを書いてください。
+      <div class="prompt-label">商談メモ → 記録に変換</div>
+      <div class="prompt-text">以下の走り書きメモを整理してください。
 
-【商談の内容】
-・院名:
-・担当者名:
+【出力フォーマット】
 ・商談日:
-・話した内容:（箇条書きで）
-・先方の反応:
-・次にやること:
-
-【メールのトーン】
-・丁寧だけど堅すぎない
-・売り込み感を出さない
-・短く（スクロールしなくても読める長さ）</div>
-      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
-    </div>
-
-    <div class="prompt-card">
-      <div class="prompt-label">商談メモの整理</div>
-      <div class="prompt-text">以下の商談メモを整理してください。
-・要点を箇条書きでまとめる
-・次のアクション（誰が・いつまでに・何をするか）を明確にする
-・CRMに入力する情報も別途まとめる
-
-【走り書きメモ】
-（ここにメモを貼り付け）</div>
-      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
-    </div>
-  </div>
-
-  <!-- ===== 6. プロンプト集 ===== -->
-  <div class="section" id="sec6">
-    <h2 class="section-title"><span class="section-number">6</span>すぐ使えるプロンプト集</h2>
-
-    <p>業務で使える汎用的なプロンプトテンプレートです。<strong>「コピー」ボタン</strong>を押して、（ ）の部分を自分の内容に書き換えて使ってください。</p>
-
-    <h3>メール・文章系</h3>
-
-    <div class="prompt-card">
-      <div class="prompt-label">メールの返信を書く</div>
-      <div class="prompt-text">以下のメールへの返信を書いてください。
-丁寧だけど堅すぎない、ビジネスメールのトーンで。
-
-【受信メール】
-（ここにメール本文を貼り付け）
-
-【返信のポイント】
-（伝えたいことを箇条書きで）</div>
-      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
-    </div>
-
-    <div class="prompt-card">
-      <div class="prompt-label">長い文章を要約する</div>
-      <div class="prompt-text">以下の文章を、要点だけ箇条書き3〜5個にまとめてください。
-専門用語があれば分かりやすく言い換えてください。
-
-【文章】
-（ここに文章を貼り付け）</div>
-      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
-    </div>
-
-    <h3>アイデア・企画系</h3>
-
-    <div class="prompt-card">
-      <div class="prompt-label">ブレスト相手になってもらう</div>
-      <div class="prompt-text">以下のテーマでアイデアを10個出してください。
-実現可能性は気にせず、まずは量を出してください。
-
-【テーマ】
-（テーマを入力）
-
-【条件・制約】
-（あれば入力。なければ削除してOK）</div>
-      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
-    </div>
-
-    <h3>データ・情報整理系</h3>
-
-    <div class="prompt-card">
-      <div class="prompt-label">比較表を作る</div>
-      <div class="prompt-text">以下の選択肢を比較表にまとめてください。
-判断がしやすいように、メリット・デメリット・コストを含めてください。
-
-【比較したいもの】
-1.（選択肢A）
-2.（選択肢B）
-3.（選択肢C）
-
-【比較の観点】
-（何を重視して比較したいか）</div>
-      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
-    </div>
-
-    <div class="prompt-card">
-      <div class="prompt-label">議事録を整理する</div>
-      <div class="prompt-text">以下の打ち合わせメモを議事録にまとめてください。
-
-【フォーマット】
-・日時:
-・参加者:
-・議題:
-・決定事項:（箇条書き）
-・次のアクション:（誰が・いつまでに・何を）
-・保留事項:
+・院名:
+・担当者:
+・話した内容（要点）:
+・先方の反応・温度感:
+・次のアクション（誰が・いつまでに・何を）:
+・CRM入力情報（ステータス・ネクストアクション）:
 
 【メモ】
-（ここにメモを貼り付け）</div>
-      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
-    </div>
-
-    <h3>リサーチ系</h3>
-
-    <div class="prompt-card">
-      <div class="prompt-label">業界・競合を調べる</div>
-      <div class="prompt-text">以下の業界/会社について調べてください。
-
-【対象】
-（業界名 or 会社名）
-
-【知りたいこと】
-・市場規模や傾向
-・主要なプレイヤー
-・最近のトレンド
-・うちの事業との関連性
-
-分かる範囲で回答してください。不確実な情報は「推定」と明記してください。</div>
+（ここに走り書きを貼り付け）</div>
       <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
     </div>
   </div>
 
-  <!-- ===== 7. ハンズオン手順 ===== -->
+  <!-- ===== 6. エージェントへの指示の出し方 ===== -->
+  <div class="section" id="sec6">
+    <h2 class="section-title"><span class="section-number">6</span>エージェントへの指示の出し方</h2>
+
+    <p>エージェントは「自分で考えて動く」ので、<strong>対話型AIよりも指示の出し方が重要</strong>です。良い指示 = 良い成果物。</p>
+
+    <h3>基本フォーマット</h3>
+    <div class="highlight-box">
+      <p><strong>良い指示 = 「何を」+「どういう条件で」+「どんな形式で」</strong></p>
+      <p style="margin-top: 8px;">この3つが揃っていれば、エージェントは勝手に動いてくれます。</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>要素</th><th>説明</th><th>例</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>何を</strong></td>
+          <td>やってほしいタスク</td>
+          <td>「来月の営業メールを作って」</td>
+        </tr>
+        <tr>
+          <td><strong>条件</strong></td>
+          <td>前提情報・制約</td>
+          <td>「整骨院向け」「丁寧だけど売り込まない」</td>
+        </tr>
+        <tr>
+          <td><strong>形式</strong></td>
+          <td>アウトプットの形</td>
+          <td>「1通300文字以内」「箇条書きで」</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>良い指示 / ダメな指示</h3>
+    <table>
+      <thead>
+        <tr><th style="width:50%">ダメな指示</th><th style="width:50%">良い指示</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color: var(--danger);">「メール書いて」</td>
+          <td style="color: var(--success);">「○○整骨院の院長宛に、事故なび登録のフォローアップメールを書いて。先週の商談で好感触だった点に触れて。3行以内で」</td>
+        </tr>
+        <tr>
+          <td style="color: var(--danger);">「台本作って」</td>
+          <td style="color: var(--success);">「ふららぼのTikTok台本を3本。15秒尺。来店促進が目的。カフェの雰囲気が伝わる内容で。シーン割りとテロップ案もつけて」</td>
+        </tr>
+        <tr>
+          <td style="color: var(--danger);">「分析して」</td>
+          <td style="color: var(--success);">「添付の売上データから、先月との比較で変化があった項目を抽出して。改善提案を3つ、優先度順に出して」</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>エージェントならではのコツ</h3>
+    <div class="info-box">
+      <p><strong>エージェントは「途中で止まっていい」</strong></p>
+      <ul style="margin-top: 8px;">
+        <li>途中の成果物を見て「ここはこう変えて」と追加指示できる</li>
+        <li>最初から完璧な指示を出す必要はない。<strong>走りながら修正</strong>でOK</li>
+        <li>「ちょっと方向が違うな」と思ったらすぐに言えば、エージェントが軌道修正してくれる</li>
+      </ul>
+    </div>
+
+    <h3>汎用テンプレート</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-label">万能テンプレート — 何にでも使える</div>
+      <div class="prompt-text">【やってほしいこと】
+（1行で端的に）
+
+【背景・前提】
+- （箇条書きで）
+-
+-
+
+【条件・制約】
+- （あれば。なければ削除OK）
+
+【アウトプットの形式】
+- （箇条書き / 表 / ○文字以内 / etc.）</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+  </div>
+
+  <!-- ===== 7. セットアップ手順 ===== -->
   <div class="section" id="sec7">
-    <h2 class="section-title"><span class="section-number">7</span>ハンズオン手順</h2>
+    <h2 class="section-title"><span class="section-number">7</span>セットアップ手順</h2>
 
-    <p>今日この場で、アカウント作成から最初の質問まで一緒にやります。<strong>スマホでもPCでもOK</strong>です。</p>
+    <p>今日この場で、全員のPCにエージェントツールをセットアップします。</p>
 
-    <h3>ChatGPTの始め方</h3>
+    <h3>STEP 0: VS Codeのインストール（共通）</h3>
+    <div class="info-box">
+      <p>Claude CodeとAntigravityはVS Code上で動きます。Codexもデスクトップ版はVS Codeが必要です。<br>
+      <strong>まだ入っていない人は、まずVS Codeをインストールしましょう。</strong></p>
+    </div>
 
     <div class="step-list">
       <div class="step-item">
-        <div class="step-title">ChatGPTにアクセス</div>
-        <div class="step-desc">ブラウザで <strong>chatgpt.com</strong> を開く（アプリでもOK）</div>
+        <div class="step-title">VS Codeをダウンロード</div>
+        <div class="step-desc"><strong>code.visualstudio.com</strong> にアクセス → 「Download」ボタンをクリック → インストール</div>
       </div>
       <div class="step-item">
-        <div class="step-title">アカウントを作成</div>
-        <div class="step-desc">「Sign up」→ Googleアカウントでログインが一番簡単。メールアドレスでも登録可能</div>
-      </div>
-      <div class="step-item">
-        <div class="step-title">有料プランに切り替え</div>
-        <div class="step-desc">ログイン後、左下のアカウント名をクリック → 「Upgrade to Plus」→ カード情報を入力。<strong>月額$20（約3,000円）</strong></div>
-      </div>
-      <div class="step-item">
-        <div class="step-title">最初の質問をしてみる</div>
-        <div class="step-desc">チャット欄に何でもいいので質問を入力して「送信」を押す。まずは気軽に話しかけてみましょう</div>
-      </div>
-      <div class="step-item">
-        <div class="step-title">ファイルを送ってみる</div>
-        <div class="step-desc">チャット欄の「+」ボタンからファイルを添付可能。PDFやExcelを送って「この内容を要約して」と聞いてみましょう</div>
+        <div class="step-title">日本語化（任意）</div>
+        <div class="step-desc">VS Codeを開く → 左の拡張機能アイコン（四角4つ）→ 「Japanese」で検索 → 「Japanese Language Pack」をインストール → 再起動</div>
       </div>
     </div>
 
-    <h3>最初に試す3つの質問</h3>
-    <div class="highlight-box">
-      <p><strong>1. 自己紹介から始める</strong></p>
-      <p style="font-size: 13px; color: var(--text-sub);">「私は○○の仕事をしています。この仕事を効率化するアイデアを3つ教えてください」</p>
-      <p style="margin-top: 12px;"><strong>2. メールの下書きを頼む</strong></p>
-      <p style="font-size: 13px; color: var(--text-sub);">「以下のメールに返信を書いてください:（メール本文を貼り付け）」</p>
-      <p style="margin-top: 12px;"><strong>3. 文章を要約してもらう</strong></p>
-      <p style="font-size: 13px; color: var(--text-sub);">「以下の文章を、要点だけ3つにまとめてください:（長い文章を貼り付け）」</p>
+    <hr style="margin: 32px 0;">
+
+    <h3>Codex のセットアップ（ChatGPT Plus）</h3>
+    <p class="text-sub">Webブラウザからも使えるので、一番始めやすいです。</p>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-title">ChatGPT Plusに加入</div>
+        <div class="step-desc"><strong>chatgpt.com</strong> でアカウント作成 → 左下のアカウント名 → 「Upgrade to Plus」→ カード情報入力（月額約3,000円）</div>
+      </div>
+      <div class="step-item">
+        <div class="step-title">Codexにアクセス</div>
+        <div class="step-desc">ChatGPTの画面左側メニューから「Codex」を選択。または <strong>chatgpt.com/codex</strong> に直接アクセス</div>
+      </div>
+      <div class="step-item">
+        <div class="step-title">最初のタスクを投げる</div>
+        <div class="step-desc">「タスクの説明」欄に指示を入力して「実行」。エージェントが自動で作業を開始します</div>
+      </div>
     </div>
 
-    <h3>うまく使うコツ</h3>
-    <div class="info-box">
-      <p><strong>具体的に指示するほど、良い回答が返ってくる</strong></p>
-      <ul style="margin-top: 8px;">
-        <li>NG:「メール書いて」→ ぼんやりした回答になる</li>
-        <li>OK:「○○さんへのお礼メール。昨日の商談のフォローアップ。丁寧だけど短く」→ 的確な回答</li>
-      </ul>
-      <p style="margin-top: 8px;">迷ったら<strong>「誰に・何を・どんなトーンで」</strong>を伝えれば大丈夫です。</p>
+    <hr style="margin: 32px 0;">
+
+    <h3>Claude Code のセットアップ</h3>
+    <p class="text-sub">VS Codeの拡張機能として使います。</p>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-title">Claude Proに加入</div>
+        <div class="step-desc"><strong>claude.ai</strong> でアカウント作成 → 「Upgrade to Pro」（月額約3,000円）</div>
+      </div>
+      <div class="step-item">
+        <div class="step-title">VS Codeに拡張機能をインストール</div>
+        <div class="step-desc">VS Codeを開く → 拡張機能 → 「Claude Code」で検索 → インストール</div>
+      </div>
+      <div class="step-item">
+        <div class="step-title">Claudeアカウントでログイン</div>
+        <div class="step-desc">VS Codeの左側に表示されるClaude Codeパネルから「Sign in」→ ブラウザが開くのでログイン</div>
+      </div>
+      <div class="step-item">
+        <div class="step-title">最初の指示を出す</div>
+        <div class="step-desc">チャット欄に作業内容を入力。ファイルの読み書きも自動でやってくれます</div>
+      </div>
+    </div>
+
+    <hr style="margin: 32px 0;">
+
+    <h3>Antigravity のセットアップ</h3>
+    <p class="text-sub">GoogleのGeminiを搭載したVS Code拡張です。</p>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-title">Googleアカウントを用意</div>
+        <div class="step-desc">会社のGoogle Workspace アカウントでOK。Gemini Advancedに加入する場合は月額2,900円</div>
+      </div>
+      <div class="step-item">
+        <div class="step-title">VS Codeに拡張機能をインストール</div>
+        <div class="step-desc">VS Codeを開く → 拡張機能 → 「Gemini Code Assist」で検索 → インストール</div>
+      </div>
+      <div class="step-item">
+        <div class="step-title">Googleアカウントでログイン</div>
+        <div class="step-desc">拡張機能の指示に従ってGoogleアカウントでサインイン</div>
+      </div>
+      <div class="step-item">
+        <div class="step-title">最初の指示を出す</div>
+        <div class="step-desc">サイドバーのGeminiパネルからタスクを入力。Google Driveのファイルを参照させることもできます</div>
+      </div>
     </div>
   </div>
 
   <!-- ===== 8. セキュリティ ===== -->
   <div class="section" id="sec8">
-    <h2 class="section-title"><span class="section-number">8</span>セキュリティ・注意事項</h2>
+    <h2 class="section-title"><span class="section-number">8</span>セキュリティ・ルール</h2>
 
-    <p>AIを安全に使うためのルールです。<strong>これだけは守ってください。</strong></p>
+    <p>エージェントは<strong>ファイルを直接読み書きできる</strong>ので、対話型AIよりも注意が必要です。</p>
 
     <h3>絶対にやってはいけないこと</h3>
     <div class="caution-box">
-      <p><strong>以下の情報はAIに入力しないでください:</strong></p>
+      <p><strong>以下の情報はエージェントに渡さないでください:</strong></p>
       <ul style="margin-top: 8px;">
-        <li><strong>患者さんの個人情報</strong>（名前・住所・電話番号・病名など）</li>
-        <li><strong>クレジットカード情報</strong>（自分のも他人のも）</li>
-        <li><strong>契約書の原文</strong>（金額や条件がそのまま含まれるもの）</li>
+        <li><strong>患者さんの個人情報</strong>（名前・住所・電話番号・病名）</li>
+        <li><strong>クレジットカード情報</strong></li>
         <li><strong>パスワード・ログイン情報</strong></li>
+        <li><strong>契約書の原文</strong>（金額や個人情報がそのまま含まれるもの）</li>
       </ul>
     </div>
 
-    <h3>安全に使うコツ</h3>
+    <h3>エージェントを使うときのルール</h3>
+    <div class="rule-box">
+      <div class="rule-title">4つのルール</div>
+      <ul>
+        <li><strong>エージェントの操作は必ず確認してから承認する</strong> — ファイル編集や外部操作の前に「本当にやっていいか」確認画面が出る。内容を読んでから承認する</li>
+        <li><strong>AIの成果物は必ず自分でチェックする</strong> — エージェントは嘘をつくことがある（ハルシネーション）。特に数字・人名・日付は要確認</li>
+        <li><strong>お客様に直接送るものはそのまま送らない</strong> — メール・提案書は必ず目を通して、自分の判断で調整してから送信する</li>
+        <li><strong>分からないことが起きたら、止めて上田に聞く</strong> — エージェントが変なことを始めたら「キャンセル」してOK。壊れることはないので安心して</li>
+      </ul>
+    </div>
+
+    <h3>個人情報の安全な扱い方</h3>
     <div class="info-box">
-      <p><strong>個人情報を伏せ字にしてから入力する</strong></p>
+      <p><strong>伏せ字にしてから渡す:</strong></p>
       <ul style="margin-top: 8px;">
-        <li>「山田太郎さん」→「Aさん」や「○○さん」に置き換え</li>
+        <li>「山田太郎さん」→「Aさん」「○○さん」に置き換え</li>
         <li>「渋谷区○○1-2-3」→「東京都内」に置き換え</li>
         <li>固有名詞を伏せても、AIは文脈を理解して回答してくれます</li>
       </ul>
     </div>
 
-    <h3>AIの回答を扱うルール</h3>
-    <div class="rule-box">
-      <div class="rule-title">3つのルール</div>
-      <ul>
-        <li><strong>AIの回答は必ず自分で確認してから使う</strong> — AIは「嘘をつく」ことがあります（もっともらしいが間違った回答をする）。特に数字やデータは要注意</li>
-        <li><strong>AIが作った文章はそのまま送らない</strong> — 必ず目を通して、自分の言葉に直してから送信する</li>
-        <li><strong>重要な判断はAI任せにしない</strong> — AIはあくまで参考意見。最終判断は自分で行う</li>
-      </ul>
-    </div>
-
-    <h3>データ学習をOFFにする設定（推奨）</h3>
-    <div class="step-list">
-      <div class="step-item">
-        <div class="step-title">ChatGPTの設定を開く</div>
-        <div class="step-desc">左下のアカウント名 → 「Settings」をクリック</div>
-      </div>
-      <div class="step-item">
-        <div class="step-title">データ管理を開く</div>
-        <div class="step-desc">「Data controls」をクリック</div>
-      </div>
-      <div class="step-item">
-        <div class="step-title">学習をOFFにする</div>
-        <div class="step-desc">「Improve the model for everyone」を<strong>OFF</strong>にする。これで入力した内容がAIの学習に使われなくなります</div>
-      </div>
-    </div>
+    <h3>データ学習をOFFにする（推奨）</h3>
+    <table>
+      <thead>
+        <tr><th>ツール</th><th>設定場所</th><th>操作</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ChatGPT</strong></td>
+          <td>Settings → Data controls</td>
+          <td>「Improve the model for everyone」を <strong>OFF</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Claude</strong></td>
+          <td>Settings → Privacy</td>
+          <td>学習に使用しない設定を確認（ProプランはデフォルトでOFF）</td>
+        </tr>
+        <tr>
+          <td><strong>Gemini</strong></td>
+          <td>myaccount.google.com → データとプライバシー</td>
+          <td>Geminiアクティビティの管理を確認</td>
+        </tr>
+      </tbody>
+    </table>
 
     <div class="highlight-box">
-      <p><strong>迷ったら「この情報、社外の人に見せて大丈夫？」と考えてください。</strong></p>
-      <p>大丈夫なら入力OK。ダメなら伏せ字にするか、入力しない。それだけでOKです。</p>
+      <p><strong>迷ったら:</strong> 「この情報、社外の人に見せて大丈夫？」と考える。</p>
+      <p>大丈夫 → 入力OK。ダメ → 伏せ字にするか入力しない。これだけでOK。</p>
     </div>
   </div>
 
   <!-- Footer -->
   <div class="doc-footer">
-    <p>社内研修資料 — 3/2のハンズオンで実際に触りながら進めます</p>
+    <p>社内研修資料 — エージェントAIで「仕事を任せる」を始めよう</p>
     <p style="margin-top: 8px;">株式会社Opus.net | 2026年3月2日研修用 | 作成: 上田 琉</p>
   </div>
 
@@ -812,7 +883,6 @@
     overlay.classList.toggle('open');
   });
   overlay.addEventListener('click', closeSidebar);
-  // Close on link click (mobile)
   sidebar.querySelectorAll('a').forEach(function(a) {
     a.addEventListener('click', closeSidebar);
   });
