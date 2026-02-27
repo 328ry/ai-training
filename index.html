@@ -662,14 +662,34 @@
     </div>
   </div>
 
-  <!-- ===== SLIDE 20: Section Title ===== -->
+  <!-- ===== SLIDE 20: HTML vs Word ===== -->
+  <div class="slide">
+    <h2>社内資料をHTMLにする理由</h2>
+    <p style="font-size: 17px; color: var(--text-secondary); margin-bottom: 20px;">この研修資料自体が、その実例です。</p>
+    <table>
+      <thead><tr><th style="width:30%">比較ポイント</th><th style="width:35%">Word / PDF</th><th style="width:35%">HTML（GitHub Pages）</th></tr></thead>
+      <tbody>
+        <tr><td><strong>共有方法</strong></td><td>ファイルを送付・DL</td><td><strong>URLを送るだけ</strong></td></tr>
+        <tr><td><strong>バージョン管理</strong></td><td>「最新版_v3_final.docx」問題</td><td><strong>常に最新が1つ</strong>。更新即反映</td></tr>
+        <tr><td><strong>マルチデバイス</strong></td><td>PC以外で崩れがち</td><td><strong>スマホ・タブレットOK</strong></td></tr>
+        <tr><td><strong>AI作成・修正</strong></td><td>Wordの操作はAIが苦手</td><td><strong>エージェントが直接書ける</strong></td></tr>
+        <tr><td><strong>デザインの自由度</strong></td><td>テンプレート依存</td><td><strong>制限なし</strong>。ブランドに合わせ放題</td></tr>
+        <tr><td><strong>コスト</strong></td><td>Office ライセンス必要</td><td><strong>完全無料</strong>（GitHub Pages）</td></tr>
+      </tbody>
+    </table>
+    <div class="highlight-box" style="margin-top: 20px;">
+      <p><strong>つまり:</strong> 「AIに資料を作ってもらう → URLで全員に共有 → 修正もAIに頼む」<br>このワークフローが回るのはHTMLだけ。</p>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 21: Section Title ===== -->
   <div class="slide section-title">
     <div class="section-num">04</div>
     <div class="section-title-text">エージェントへの指示の出し方</div>
     <div class="section-subtitle">良い指示 = 良い成果物</div>
   </div>
 
-  <!-- ===== SLIDE 19: How to instruct ===== -->
+  <!-- ===== SLIDE 22: How to instruct ===== -->
   <div class="slide">
     <h2>基本フォーマット</h2>
     <div class="highlight-box">
@@ -930,10 +950,11 @@
     { slide: 6, title: '02 — 3つのAIエージェント' },
     { slide: 11, title: '03 — メンバー別の活用シーン' },
     { slide: 18, title: 'Web制作 × エージェント' },
-    { slide: 20, title: '04 — エージェントへの指示の出し方' },
-    { slide: 23, title: '05 — セットアップ手順' },
-    { slide: 28, title: '06 — セキュリティ・ルール' },
-    { slide: 31, title: 'まとめ' }
+    { slide: 20, title: 'HTMLで社内資料を作る' },
+    { slide: 21, title: '04 — エージェントへの指示の出し方' },
+    { slide: 24, title: '05 — セットアップ手順' },
+    { slide: 29, title: '06 — セキュリティ・ルール' },
+    { slide: 32, title: 'まとめ' }
   ];
   sectionTitles.forEach(function(s) {
     tocHTML += '<div class="toc-item" data-slide="' + s.slide + '"><span class="toc-num">' + (s.slide + 1) + '</span>' + s.title + '</div>';
