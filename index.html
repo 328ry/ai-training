@@ -222,7 +222,7 @@
     <div class="section-subtitle">AIを「質問する相手」から「仕事を任せる部下」に変える</div>
   </div>
 
-  <!-- ===== SLIDE 2: What's different ===== -->
+  <!-- ===== SLIDE 2: What's different + examples ===== -->
   <div class="slide">
     <h2>何が<span class="accent">変わるのか</span></h2>
     <div class="vs">
@@ -232,7 +232,6 @@
           <li>1回質問 → 1回回答</li>
           <li>自分で考えて、AIに聞く</li>
           <li>ファイルの編集はできない</li>
-          <li>途中で止まったら自分で再指示</li>
           <li>結果をコピペして使う</li>
         </ul>
       </div>
@@ -242,25 +241,19 @@
         <ul>
           <li><strong>指示を出すと最後まで自走</strong></li>
           <li>ファイルを読んで、編集して、保存</li>
-          <li>途中で自分で判断して進む</li>
           <li>Webを調べて情報収集もできる</li>
           <li><strong>「この仕事やって」→ 完了</strong></li>
         </ul>
       </div>
     </div>
-  </div>
-
-  <!-- ===== SLIDE 3: Concrete examples ===== -->
-  <div class="slide">
-    <h2>具体例で見る<span class="accent">違い</span></h2>
-    <table>
+    <table style="margin-top: 16px;">
       <thead>
         <tr><th>やりたいこと</th><th>対話型（今まで）</th><th>エージェント型（これから）</th></tr>
       </thead>
       <tbody>
         <tr>
           <td><strong>営業メール10社</strong></td>
-          <td>1社分ずつ生成 → コピペの繰り返し</td>
+          <td>1社ずつ生成→コピペの繰り返し</td>
           <td class="good">リストを渡して → 10社分を一括生成</td>
         </tr>
         <tr>
@@ -272,11 +265,6 @@
           <td><strong>競合調査</strong></td>
           <td>1社ずつ「教えて」と質問</td>
           <td class="good">「競合5社を調べて比較表に」→ Web検索+表作成</td>
-        </tr>
-        <tr>
-          <td><strong>データ整理</strong></td>
-          <td>データを貼り付けて「整理して」→ コピペ</td>
-          <td class="good">「このファイルを整理して」→ 直接編集・保存</td>
         </tr>
       </tbody>
     </table>
@@ -335,24 +323,14 @@
         <span><strong>使える場所:</strong> ターミナル（メイン）/ VS Code拡張 / デスクトップアプリ</span>
       </div>
     </div>
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-title">強み</div>
-        <div class="card-desc">
-          ・日本語の自然さが抜群<br>
-          ・長い文章を正確に読める<br>
-          ・指示書（スキル）を覚えさせて自動化<br>
-          ・ファイルを直接読み書き<br>
-          ・Web検索・GitHub連携も可能
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-title">使い方は3通り</div>
-        <div class="card-desc">
-          <strong>① ターミナル</strong>: 最も自由度が高い（メイン）<br>
-          <strong>② VS Code拡張</strong>: エディタ内で使える<br>
-          <strong>③ デスクトップアプリ</strong>: Claude Desktopから利用
-        </div>
+    <div class="card" style="margin-top: 12px;">
+      <div class="card-title">強み</div>
+      <div class="card-desc">
+        ・日本語の自然さが抜群<br>
+        ・長い文章を正確に読める<br>
+        ・指示書（スキル）を覚えさせて自動化<br>
+        ・ファイルを直接読み書き<br>
+        ・Web検索・GitHub連携も可能
       </div>
     </div>
   </div>
@@ -370,24 +348,13 @@
         <span><strong>使える場所:</strong> Web（chatgpt.com/codex）/ CLI / VS Code拡張 / macOSアプリ</span>
       </div>
     </div>
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-title">強み</div>
-        <div class="card-desc">
-          ・<strong>Webブラウザだけで使える</strong>（最も手軽）<br>
-          ・安全なサンドボックス実行<br>
-          ・追加費用なし（Plus契約内）<br>
-          ・画像生成（DALL-E）も内蔵
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-title">使い方は4通り</div>
-        <div class="card-desc">
-          <strong>① Web</strong>: chatgpt.com/codex（最も簡単）<br>
-          <strong>② CLI</strong>: ターミナルで使う<br>
-          <strong>③ VS Code拡張</strong>: エディタ内で使える<br>
-          <strong>④ macOSアプリ</strong>: デスクトップで使う
-        </div>
+    <div class="card" style="margin-top: 12px;">
+      <div class="card-title">強み</div>
+      <div class="card-desc">
+        ・<strong>Webブラウザだけで使える</strong>（最も手軽）<br>
+        ・安全なサンドボックス実行<br>
+        ・追加費用なし（Plus契約内）<br>
+        ・画像生成（DALL-E）も内蔵
       </div>
     </div>
   </div>
@@ -405,28 +372,17 @@
         <span><strong>使える場所:</strong> 専用デスクトップアプリ（antigravity.google）</span>
       </div>
     </div>
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-title">強み</div>
-        <div class="card-desc">
-          ・<strong>無料で使える</strong>（追加課金なし）<br>
-          ・アプリを入れるだけで始められる<br>
-          ・Google検索ベースの情報収集<br>
-          ・ファイル編集・作成が可能
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-title">注意点</div>
-        <div class="card-desc">
-          ・<strong>個人のGmailアカウントが必要</strong><br>
-          　（Google Workspaceアカウントは非対応）<br>
-          ・VS Codeとは別のアプリ<br>
-          ・Googleの別ツール「Jules」「Gemini Code Assist」もある
-        </div>
+    <div class="card" style="margin-top: 12px;">
+      <div class="card-title">強み</div>
+      <div class="card-desc">
+        ・<strong>無料で使える</strong>（追加課金なし）<br>
+        ・アプリを入れるだけで始められる<br>
+        ・Google検索ベースの情報収集<br>
+        ・ファイル編集・作成が可能
       </div>
     </div>
-    <div class="info-box" style="margin-top: 12px;">
-      <p style="font-size: 13px;"><strong>Google系AIエージェントは3種類あります:</strong> Antigravity（専用アプリ）/ Jules（Webから使えるエージェント / jules.google.com）/ Gemini Code Assist（VS Code拡張）。今回はAntigravityを紹介。</p>
+    <div class="caution-box" style="margin-top: 12px; padding: 14px 20px;">
+      <p style="font-size: 14px;"><strong>⚠ 個人の @gmail.com アカウントが必要。</strong>会社のGoogle Workspaceアカウントでは使えません。</p>
     </div>
   </div>
 
@@ -451,14 +407,81 @@
     </div>
   </div>
 
-  <!-- ===== SLIDE 11: Section Title ===== -->
+  <!-- ===== Section 03: How to instruct ===== -->
   <div class="slide section-title">
     <div class="section-num">03</div>
-    <div class="section-title-text">メンバー別の活用シーン</div>
-    <div class="section-subtitle">松本さん・栗原さん・常田さん、それぞれの使い方</div>
+    <div class="section-title-text">エージェントへの指示の出し方</div>
+    <div class="section-subtitle">良い指示 = 良い成果物</div>
   </div>
 
-  <!-- ===== SLIDE 12: Matsumoto ===== -->
+  <div class="slide">
+    <h2>基本フォーマット</h2>
+    <div class="highlight-box">
+      <p style="font-size: 20px;"><strong>「何を」+「条件」+「形式」</strong>の3つを伝える</p>
+    </div>
+    <table>
+      <thead><tr><th>要素</th><th>説明</th><th>例</th></tr></thead>
+      <tbody>
+        <tr><td><strong>何を</strong></td><td>やってほしいタスク</td><td>「来月の営業メールを作って」</td></tr>
+        <tr><td><strong>条件</strong></td><td>前提情報・制約</td><td>「整骨院向け」「売り込まない」</td></tr>
+        <tr><td><strong>形式</strong></td><td>アウトプットの形</td><td>「1通300文字以内」「表形式で」</td></tr>
+      </tbody>
+    </table>
+    <div class="info-box">
+      <p><strong>コツ:</strong> 最初から完璧な指示を出す必要はない。途中で「ここ変えて」でOK。<strong>走りながら修正</strong>できるのがエージェントの強み。</p>
+    </div>
+  </div>
+
+  <div class="slide">
+    <h2>良い指示 / <span class="accent">ダメな指示</span></h2>
+    <table>
+      <thead><tr><th style="width:40%">ダメな指示</th><th style="width:60%">良い指示</th></tr></thead>
+      <tbody>
+        <tr>
+          <td style="color: var(--danger);">「メール書いて」</td>
+          <td style="color: var(--success);">「○○整骨院の院長宛に、事故なび登録のフォローアップメールを書いて。先週好感触だった点に触れて。3行以内で」</td>
+        </tr>
+        <tr>
+          <td style="color: var(--danger);">「台本作って」</td>
+          <td style="color: var(--success);">「ふららぼのTikTok台本3本。15秒尺。来店促進。シーン割りとテロップ案もつけて」</td>
+        </tr>
+        <tr>
+          <td style="color: var(--danger);">「分析して」</td>
+          <td style="color: var(--success);">「添付の売上データから、先月との変化を抽出して。改善提案3つ、優先度順に」</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="slide">
+    <h2>万能テンプレート</h2>
+    <p style="font-size: 17px; color: var(--text-sub); margin-bottom: 16px;">迷ったらこの形で指示を出せばOK。</p>
+    <div class="prompt-card">
+      <div class="prompt-label">コピーして使おう</div>
+      <div class="prompt-text">【やってほしいこと】（1行で端的に）
+
+【背景・前提】
+- （箇条書き）
+
+【条件・制約】
+- （あれば）
+
+【アウトプットの形式】
+- （箇条書き / 表 / ○文字以内 / etc.）</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
+    </div>
+    <div class="highlight-box" style="margin-top: 20px;">
+      <p>このあと紹介する<strong>メンバー別の指示例</strong>も、全てこのフォーマットに沿っています。</p>
+    </div>
+  </div>
+
+  <!-- ===== Section 04: Use cases ===== -->
+  <div class="slide section-title">
+    <div class="section-num">04</div>
+    <div class="section-title-text">活用シーン</div>
+    <div class="section-subtitle">経営・映像制作・営業・Web制作・社内資料</div>
+  </div>
+
   <div class="slide">
     <h2>経営 × エージェント</h2>
     <p class="lead">「考える → まとめる → 判断する」のサイクルをエージェントが加速</p>
@@ -478,7 +501,6 @@
     </div>
   </div>
 
-  <!-- ===== SLIDE 13: Matsumoto prompt ===== -->
   <div class="slide">
     <h2>経営 × エージェント — <span class="accent">指示例</span></h2>
     <div class="prompt-card">
@@ -508,7 +530,6 @@
     </div>
   </div>
 
-  <!-- ===== SLIDE 14: Kurihara ===== -->
   <div class="slide">
     <h2>映像制作 × エージェント</h2>
     <p class="lead">撮影・編集は栗原さん。その前後（企画・台本・投稿文）をエージェントが担当</p>
@@ -532,7 +553,6 @@
     </div>
   </div>
 
-  <!-- ===== SLIDE 15: Kurihara prompt ===== -->
   <div class="slide">
     <h2>映像制作 × エージェント — <span class="accent">指示例</span></h2>
     <div class="prompt-card">
@@ -555,7 +575,6 @@
     </div>
   </div>
 
-  <!-- ===== SLIDE 16: Tsuneda ===== -->
   <div class="slide">
     <h2>営業 × エージェント</h2>
     <p class="lead">準備・フォロー・データ整理をエージェントに任せて、営業活動に集中</p>
@@ -579,7 +598,6 @@
     </div>
   </div>
 
-  <!-- ===== SLIDE 17: Tsuneda prompt ===== -->
   <div class="slide">
     <h2>営業 × エージェント — <span class="accent">指示例</span></h2>
     <div class="prompt-card">
@@ -604,7 +622,6 @@
     </div>
   </div>
 
-  <!-- ===== SLIDE 18: Web制作 ===== -->
   <div class="slide">
     <h2>Web制作 × エージェント</h2>
     <p class="lead">エンジニアじゃなくても、AIエージェントに指示を出すだけでWebサイトが作れる時代</p>
@@ -634,7 +651,6 @@
     </div>
   </div>
 
-  <!-- ===== SLIDE 19: Web制作 prompt ===== -->
   <div class="slide">
     <h2>Web制作 × エージェント — <span class="accent">指示例</span></h2>
     <div class="prompt-card">
@@ -662,10 +678,9 @@
     </div>
   </div>
 
-  <!-- ===== SLIDE 20: HTML vs Word ===== -->
   <div class="slide">
     <h2>社内資料をHTMLにする理由</h2>
-    <p style="font-size: 17px; color: var(--text-secondary); margin-bottom: 20px;">この研修資料自体が、その実例です。</p>
+    <p style="font-size: 17px; color: var(--text-sub); margin-bottom: 20px;">この研修資料自体が、その実例です。</p>
     <table>
       <thead><tr><th style="width:30%">比較ポイント</th><th style="width:35%">Word / PDF</th><th style="width:35%">HTML（GitHub Pages）</th></tr></thead>
       <tbody>
@@ -682,10 +697,9 @@
     </div>
   </div>
 
-  <!-- ===== SLIDE 21: Document-style HTML demo ===== -->
   <div class="slide">
     <h2>ドキュメント形式の HTML</h2>
-    <p style="font-size: 17px; color: var(--text-secondary); margin-bottom: 16px;">HTMLはスライドだけじゃない。Wordのような縦スクロール文書も作れる。</p>
+    <p style="font-size: 17px; color: var(--text-sub); margin-bottom: 16px;">HTMLはスライドだけじゃない。Wordのような縦スクロール文書も作れる。</p>
     <div style="flex: 1; display: flex; gap: 32px; align-items: stretch; min-height: 0;">
       <div style="flex: 2; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #f1f5f9;">
         <iframe src="sample-minutes.html" style="width: 100%; height: 100%; border: none; transform-origin: top left;" title="議事録サンプル"></iframe>
@@ -708,95 +722,14 @@
     </div>
   </div>
 
-  <!-- ===== SLIDE 22: Section Title ===== -->
-  <div class="slide section-title">
-    <div class="section-num">04</div>
-    <div class="section-title-text">エージェントへの指示の出し方</div>
-    <div class="section-subtitle">良い指示 = 良い成果物</div>
-  </div>
-
-  <!-- ===== SLIDE 22: How to instruct ===== -->
-  <div class="slide">
-    <h2>基本フォーマット</h2>
-    <div class="highlight-box">
-      <p style="font-size: 20px;"><strong>「何を」+「条件」+「形式」</strong>の3つを伝える</p>
-    </div>
-    <table>
-      <thead><tr><th>要素</th><th>説明</th><th>例</th></tr></thead>
-      <tbody>
-        <tr><td><strong>何を</strong></td><td>やってほしいタスク</td><td>「来月の営業メールを作って」</td></tr>
-        <tr><td><strong>条件</strong></td><td>前提情報・制約</td><td>「整骨院向け」「売り込まない」</td></tr>
-        <tr><td><strong>形式</strong></td><td>アウトプットの形</td><td>「1通300文字以内」「表形式で」</td></tr>
-      </tbody>
-    </table>
-    <div class="info-box">
-      <p><strong>コツ:</strong> 最初から完璧な指示を出す必要はない。途中で「ここ変えて」でOK。<strong>走りながら修正</strong>できるのがエージェントの強み。</p>
-    </div>
-  </div>
-
-  <!-- ===== SLIDE 20: Good vs Bad ===== -->
-  <div class="slide">
-    <h2>良い指示 / <span class="accent">ダメな指示</span></h2>
-    <table>
-      <thead><tr><th style="width:40%">ダメな指示</th><th style="width:60%">良い指示</th></tr></thead>
-      <tbody>
-        <tr>
-          <td style="color: var(--danger);">「メール書いて」</td>
-          <td style="color: var(--success);">「○○整骨院の院長宛に、事故なび登録のフォローアップメールを書いて。先週好感触だった点に触れて。3行以内で」</td>
-        </tr>
-        <tr>
-          <td style="color: var(--danger);">「台本作って」</td>
-          <td style="color: var(--success);">「ふららぼのTikTok台本3本。15秒尺。来店促進。シーン割りとテロップ案もつけて」</td>
-        </tr>
-        <tr>
-          <td style="color: var(--danger);">「分析して」</td>
-          <td style="color: var(--success);">「添付の売上データから、先月との変化を抽出して。改善提案3つ、優先度順に」</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="prompt-card" style="margin-top: 20px;">
-      <div class="prompt-label">万能テンプレート</div>
-      <div class="prompt-text">【やってほしいこと】（1行で端的に）
-
-【背景・前提】
-- （箇条書き）
-
-【条件・制約】
-- （あれば）
-
-【アウトプットの形式】
-- （箇条書き / 表 / ○文字以内 / etc.）</div>
-      <button class="copy-btn" onclick="copyPrompt(this)">コピー</button>
-    </div>
-  </div>
-
-  <!-- ===== SLIDE 21: Section Title ===== -->
+  <!-- ===== Section 05: Setup ===== -->
   <div class="slide section-title">
     <div class="section-num">05</div>
     <div class="section-title-text">セットアップ手順</div>
     <div class="section-subtitle">今日この場で、全員のPCにセットアップします</div>
   </div>
 
-  <!-- ===== SLIDE 22: VS Code ===== -->
-  <div class="slide">
-    <h2>STEP 0: <span class="accent">VS Code</span> のインストール（任意）</h2>
-    <p class="lead">Claude CodeのVS Code拡張を使いたい場合に必要。Codex（Web版）やAntigravityには不要です。</p>
-    <div class="step-list">
-      <div class="step-item">
-        <div class="step-title">VS Codeをダウンロード</div>
-        <div class="step-desc"><strong>code.visualstudio.com</strong> → 「Download」→ インストール</div>
-      </div>
-      <div class="step-item">
-        <div class="step-title">日本語化（任意）</div>
-        <div class="step-desc">拡張機能 → 「Japanese」検索 → 「Japanese Language Pack」をインストール → 再起動</div>
-      </div>
-    </div>
-    <div class="info-box" style="margin-top: 16px;">
-      <p style="font-size: 14px;"><strong>VS Codeがなくても使えるもの:</strong> Codex（Web版）、Antigravity（専用アプリ）、Claude Code（ターミナル版）</p>
-    </div>
-  </div>
-
-  <!-- ===== SLIDE 23: Codex setup ===== -->
+  <!-- ===== Codex setup ===== -->
   <div class="slide">
     <h2><span class="tool-tag tag-openai" style="font-size:14px; vertical-align:middle;">OpenAI</span> Codex のセットアップ</h2>
     <p class="lead" style="font-size:16px;">Webブラウザから使える。一番始めやすい。</p>
@@ -950,7 +883,7 @@
 
 <div class="nav">
   <button id="prevBtn" disabled>&#8592;</button>
-  <div class="page-num" id="pageNum">1 / 30</div>
+  <div class="page-num" id="pageNum">1 / 33</div>
   <button id="nextBtn">&#8594;</button>
 </div>
 
@@ -973,14 +906,12 @@
   var sectionTitles = [
     { slide: 0, title: 'カバー' },
     { slide: 1, title: '01 — 対話型 → エージェント型へ' },
-    { slide: 6, title: '02 — 3つのAIエージェント' },
-    { slide: 11, title: '03 — メンバー別の活用シーン' },
-    { slide: 18, title: 'Web制作 × エージェント' },
-    { slide: 20, title: 'HTMLで社内資料を作る' },
-    { slide: 22, title: '04 — エージェントへの指示の出し方' },
+    { slide: 5, title: '02 — 3つのAIエージェント' },
+    { slide: 10, title: '03 — 指示の出し方' },
+    { slide: 14, title: '04 — 活用シーン' },
     { slide: 25, title: '05 — セットアップ手順' },
-    { slide: 30, title: '06 — セキュリティ・ルール' },
-    { slide: 33, title: 'まとめ' }
+    { slide: 29, title: '06 — セキュリティ・ルール' },
+    { slide: 32, title: 'まとめ' }
   ];
   sectionTitles.forEach(function(s) {
     tocHTML += '<div class="toc-item" data-slide="' + s.slide + '"><span class="toc-num">' + (s.slide + 1) + '</span>' + s.title + '</div>';
