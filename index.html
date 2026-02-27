@@ -682,7 +682,33 @@
     </div>
   </div>
 
-  <!-- ===== SLIDE 21: Section Title ===== -->
+  <!-- ===== SLIDE 21: Document-style HTML demo ===== -->
+  <div class="slide">
+    <h2>ドキュメント形式の HTML</h2>
+    <p style="font-size: 17px; color: var(--text-secondary); margin-bottom: 16px;">HTMLはスライドだけじゃない。Wordのような縦スクロール文書も作れる。</p>
+    <div style="flex: 1; display: flex; gap: 32px; align-items: stretch; min-height: 0;">
+      <div style="flex: 2; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #f1f5f9;">
+        <iframe src="sample-minutes.html" style="width: 100%; height: 100%; border: none; transform-origin: top left;" title="議事録サンプル"></iframe>
+      </div>
+      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 18px;">
+        <div class="card" style="margin: 0;">
+          <div class="card-title" style="font-size: 16px;">Wordと同じ読み心地</div>
+          <div class="card-desc">縦スクロールで上から読む。見出し・表・箇条書き、全部使える。</div>
+        </div>
+        <div class="card" style="margin: 0;">
+          <div class="card-title" style="font-size: 16px;">印刷・PDF化もOK</div>
+          <div class="card-desc">ブラウザの印刷機能でそのままキレイに出力できる。</div>
+        </div>
+        <div class="card" style="margin: 0;">
+          <div class="card-title" style="font-size: 16px;">AIが直接作成</div>
+          <div class="card-desc">「議事録作って」の一言で、このクオリティが出る。</div>
+        </div>
+        <a href="sample-minutes.html" target="_blank" style="display: inline-block; padding: 12px 24px; background: var(--primary); color: #fff; text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 500; text-align: center;">別タブでサンプルを開く →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 22: Section Title ===== -->
   <div class="slide section-title">
     <div class="section-num">04</div>
     <div class="section-title-text">エージェントへの指示の出し方</div>
@@ -951,10 +977,10 @@
     { slide: 11, title: '03 — メンバー別の活用シーン' },
     { slide: 18, title: 'Web制作 × エージェント' },
     { slide: 20, title: 'HTMLで社内資料を作る' },
-    { slide: 21, title: '04 — エージェントへの指示の出し方' },
-    { slide: 24, title: '05 — セットアップ手順' },
-    { slide: 29, title: '06 — セキュリティ・ルール' },
-    { slide: 32, title: 'まとめ' }
+    { slide: 22, title: '04 — エージェントへの指示の出し方' },
+    { slide: 25, title: '05 — セットアップ手順' },
+    { slide: 30, title: '06 — セキュリティ・ルール' },
+    { slide: 33, title: 'まとめ' }
   ];
   sectionTitles.forEach(function(s) {
     tocHTML += '<div class="toc-item" data-slide="' + s.slide + '"><span class="toc-num">' + (s.slide + 1) + '</span>' + s.title + '</div>';

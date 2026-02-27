@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIツール導入 定例ミーティング 議事録 | Opus.net</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+    :root {
+      --primary: #1a365d;
+      --primary-light: #2b6cb0;
+      --accent: #d97706;
+      --text: #1a202c;
+      --text-sub: #4a5568;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --bg-sub: #f8fafc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: #f1f5f9;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    /* A4-like document container */
+    .document {
+      max-width: 800px;
+      margin: 40px auto;
+      background: var(--bg);
+      padding: 60px 64px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+      border-radius: 4px;
+    }
+
+    /* Document header */
+    .doc-header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+
+    .doc-header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .doc-meta {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 6px 16px;
+      font-size: 14px;
+      color: var(--text-sub);
+    }
+
+    .doc-meta dt {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* Section headings */
+    h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 36px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--primary-light);
+      margin: 24px 0 10px;
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+
+    /* Lists */
+    ul, ol {
+      margin: 8px 0 16px 24px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    li strong {
+      color: var(--primary);
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 20px;
+      font-size: 14px;
+    }
+
+    thead th {
+      background: var(--primary);
+      color: #fff;
+      font-weight: 500;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    tbody td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tbody tr:nth-child(even) {
+      background: var(--bg-sub);
+    }
+
+    /* Highlight box */
+    .note-box {
+      background: #fffbeb;
+      border-left: 4px solid var(--accent);
+      padding: 14px 18px;
+      margin: 16px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+    }
+
+    .note-box strong {
+      color: var(--accent);
+    }
+
+    /* Decision box */
+    .decision-box {
+      background: #f0fdf4;
+      border-left: 4px solid #059669;
+      padding: 14px 18px;
+      margin: 16px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+    }
+
+    .decision-box strong {
+      color: #059669;
+    }
+
+    /* Footer */
+    .doc-footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-sub);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: #fff;
+        font-size: 11pt;
+      }
+      .document {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        max-width: 100%;
+      }
+      h2 {
+        page-break-after: avoid;
+      }
+      table {
+        page-break-inside: avoid;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .document {
+        margin: 0;
+        padding: 32px 24px;
+        border-radius: 0;
+      }
+      .doc-header h1 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="document">
+
+  <!-- Header -->
+  <div class="doc-header">
+    <h1>AIツール導入 定例ミーティング 議事録</h1>
+    <dl class="doc-meta">
+      <dt>日時</dt>
+      <dd>2026年3月9日（月）10:00 〜 11:00</dd>
+      <dt>場所</dt>
+      <dd>本社ミーティングルーム</dd>
+      <dt>参加者</dt>
+      <dd>松本（社長）、上田、栗原、常田</dd>
+      <dt>作成者</dt>
+      <dd>上田</dd>
+    </dl>
+  </div>
+
+  <!-- Agenda 1 -->
+  <h2>1. AI導入の進捗報告</h2>
+  <p>3/2の研修から1週間が経過。各メンバーの利用状況を共有した。</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>メンバー</th>
+        <th>利用ツール</th>
+        <th>主な用途</th>
+        <th>利用頻度</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>松本</strong></td>
+        <td>Claude Code</td>
+        <td>経営方針の壁打ち、売上データ分析</td>
+        <td>週3回程度</td>
+      </tr>
+      <tr>
+        <td><strong>上田</strong></td>
+        <td>Claude Code / Codex</td>
+        <td>提案書作成、DM文面、サイト制作</td>
+        <td>毎日</td>
+      </tr>
+      <tr>
+        <td><strong>栗原</strong></td>
+        <td>Claude Code</td>
+        <td>動画台本の下書き、テロップ案出し</td>
+        <td>週2回程度</td>
+      </tr>
+      <tr>
+        <td><strong>常田</strong></td>
+        <td>Codex</td>
+        <td>営業メール作成、ヒアリング整理</td>
+        <td>週4回程度</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note-box">
+    <strong>共有事項:</strong> 栗原さんから「台本の構成を考えるときに使うと、自分だけでは出てこない切り口が出る」というフィードバックあり。
+  </div>
+
+  <!-- Agenda 2 -->
+  <h2>2. 来月のアクションプラン</h2>
+  <p>各メンバーが来月中に取り組む具体的なアクションを決定した。</p>
+
+  <h3>松本</h3>
+  <ul>
+    <li>四半期の売上レポートをAIで作成してみる</li>
+    <li>来期の事業計画書のドラフトにAIを活用</li>
+  </ul>
+
+  <h3>栗原</h3>
+  <ul>
+    <li>YouTube動画3本分の台本をAIと共同作成</li>
+    <li>サムネイルのキャッチコピー案をAIで複数パターン出す</li>
+  </ul>
+
+  <h3>常田</h3>
+  <ul>
+    <li>営業リストの整骨院10件にAI作成メールを送付</li>
+    <li>ヒアリングシートのテンプレートをAIで作成</li>
+  </ul>
+
+  <h3>上田</h3>
+  <ul>
+    <li>社内の定型資料をHTML化する仕組みを整備</li>
+    <li>各メンバーの業務フローに合ったプロンプト集を作成</li>
+  </ul>
+
+  <div class="decision-box">
+    <strong>決定事項:</strong> 次回定例で各自の成果物を持ち寄り、「AIを使ったことで何が変わったか」を具体的に共有する。
+  </div>
+
+  <!-- Agenda 3 -->
+  <h2>3. 予算確認</h2>
+  <p>現在の利用状況と費用について確認した。</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>項目</th>
+        <th>月額</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Claude Pro（4名分）</td>
+        <td>$80（約¥12,000）</td>
+        <td>全員 Pro プラン</td>
+      </tr>
+      <tr>
+        <td>GitHub（Free）</td>
+        <td>¥0</td>
+        <td>公開リポジトリで運用</td>
+      </tr>
+      <tr>
+        <td><strong>合計</strong></td>
+        <td><strong>約 ¥12,000 / 月</strong></td>
+        <td>予算 ¥12,000 内に収まっている</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note-box">
+    <strong>検討事項:</strong> Codexの有料プラン（Plus $20/月）が必要なメンバーが出てきた場合は、予算の再配分を検討する。
+  </div>
+
+  <!-- Agenda 4 -->
+  <h2>4. 次回予定</h2>
+  <ul>
+    <li><strong>日時:</strong> 2026年4月6日（月）10:00〜</li>
+    <li><strong>場所:</strong> 本社ミーティングルーム</li>
+    <li><strong>議題:</strong> 各自のAI活用成果の共有、プロンプト集の改善</li>
+  </ul>
+
+  <!-- Footer -->
+  <div class="doc-footer">
+    <span>株式会社 Opus.net — 社内資料</span>
+    <span>作成: AIエージェント（Claude Code）</span>
+  </div>
+
+</div>
+
+</body>
+</html>
