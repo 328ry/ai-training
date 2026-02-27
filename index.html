@@ -49,15 +49,15 @@
 
     /* ===== Cover Slide ===== */
     .slide.cover {
-      background: linear-gradient(135deg, var(--primary) 0%, #1e4e8c 50%, var(--primary-light) 100%);
+      background: var(--bg);
       text-align: center; align-items: center;
     }
-    .cover-label { font-size: 14px; letter-spacing: 8px; text-transform: uppercase; opacity: 0.5; margin-bottom: 24px; }
-    .cover h1 { font-size: 52px; font-weight: 900; letter-spacing: 3px; margin-bottom: 12px; }
-    .cover .sub { font-size: 22px; font-weight: 300; opacity: 0.8; margin-bottom: 40px; }
+    .cover-label { font-size: 14px; letter-spacing: 8px; text-transform: uppercase; color: var(--text-sub); margin-bottom: 24px; }
+    .cover h1 { font-size: 52px; font-weight: 900; letter-spacing: 3px; margin-bottom: 12px; color: var(--primary); }
+    .cover .sub { font-size: 22px; font-weight: 300; color: var(--text-sub); margin-bottom: 40px; }
     .cover-line { width: 60px; height: 3px; background: var(--accent); margin: 0 auto 40px; }
-    .cover-meta { font-size: 14px; opacity: 0.45; line-height: 2.2; }
-    .cover-badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 6px 20px; border-radius: 24px; font-size: 13px; letter-spacing: 3px; margin-bottom: 36px; }
+    .cover-meta { font-size: 14px; color: var(--text-sub); opacity: 0.6; line-height: 2.2; }
+    .cover-badge { display: inline-block; background: #eff6ff; border: 1px solid #93c5fd; color: var(--primary-light); padding: 6px 20px; border-radius: 24px; font-size: 13px; letter-spacing: 3px; margin-bottom: 36px; font-weight: 700; }
 
     /* ===== Section Title Slide ===== */
     .slide.section-title {
@@ -325,15 +325,15 @@
 
   <!-- ===== SLIDE 7: Claude Code ===== -->
   <div class="slide">
-    <div class="tool-card">
+    <div class="tool-card recommended">
       <div class="tool-header">
         <div class="tool-name">Claude Code</div>
         <span class="tool-tag tag-anthropic">Anthropic</span>
       </div>
       <div class="tool-desc">Anthropic社のClaudeを搭載。<strong>日本語の文書作成・データ分析が最も得意</strong>。上田がメインで使用中。</div>
       <div class="tool-meta">
-        <span><strong>月額:</strong> Pro $20（約3,000円）〜 MAX $100</span>
-        <span><strong>環境:</strong> VS Code拡張 / ターミナル</span>
+        <span><strong>月額:</strong> Pro $20（約3,000円）〜 MAX $200</span>
+        <span><strong>使える場所:</strong> ターミナル（メイン）/ VS Code拡張 / デスクトップアプリ</span>
       </div>
     </div>
     <div class="grid-2">
@@ -343,16 +343,16 @@
           ・日本語の自然さが抜群<br>
           ・長い文章を正確に読める<br>
           ・指示書（スキル）を覚えさせて自動化<br>
-          ・ファイルを直接読み書き
+          ・ファイルを直接読み書き<br>
+          ・Web検索・GitHub連携も可能
         </div>
       </div>
       <div class="card">
-        <div class="card-title">向いているタスク</div>
+        <div class="card-title">使い方は3通り</div>
         <div class="card-desc">
-          ・提案書・メール・報告書の作成<br>
-          ・契約書・資料の要約・分析<br>
-          ・繰り返し業務の自動化<br>
-          ・データ整理・一括処理
+          <strong>① ターミナル</strong>: 最も自由度が高い（メイン）<br>
+          <strong>② VS Code拡張</strong>: エディタ内で使える<br>
+          <strong>③ デスクトップアプリ</strong>: Claude Desktopから利用
         </div>
       </div>
     </div>
@@ -368,26 +368,26 @@
       <div class="tool-desc">OpenAI社のGPTを搭載。<strong>Webブラウザから使えて始めやすい</strong>。ChatGPT Plus契約で利用可能。</div>
       <div class="tool-meta">
         <span><strong>月額:</strong> ChatGPT Plus $20（約3,000円）に含む</span>
-        <span><strong>環境:</strong> Web（chatgpt.com）/ VS Code</span>
+        <span><strong>使える場所:</strong> Web（chatgpt.com/codex）/ CLI / VS Code拡張 / macOSアプリ</span>
       </div>
     </div>
     <div class="grid-2">
       <div class="card">
         <div class="card-title">強み</div>
         <div class="card-desc">
-          ・Webブラウザだけで使える<br>
+          ・<strong>Webブラウザだけで使える</strong>（最も手軽）<br>
           ・安全なサンドボックス実行<br>
           ・追加費用なし（Plus契約内）<br>
           ・画像生成（DALL-E）も内蔵
         </div>
       </div>
       <div class="card">
-        <div class="card-title">向いているタスク</div>
+        <div class="card-title">使い方は4通り</div>
         <div class="card-desc">
-          ・エンジニア以外もアクセスしやすい<br>
-          ・データ処理・ファイル操作<br>
-          ・サムネイル・SNS画像の作成<br>
-          ・とりあえず試してみたい人に
+          <strong>① Web</strong>: chatgpt.com/codex（最も簡単）<br>
+          <strong>② CLI</strong>: ターミナルで使う<br>
+          <strong>③ VS Code拡張</strong>: エディタ内で使える<br>
+          <strong>④ macOSアプリ</strong>: デスクトップで使う
         </div>
       </div>
     </div>
@@ -400,31 +400,34 @@
         <div class="tool-name">Antigravity（Gemini）</div>
         <span class="tool-tag tag-google">Google</span>
       </div>
-      <div class="tool-desc">GoogleのGeminiを搭載したVS Code拡張。<strong>Google Workspace連携</strong>（Gmail, Drive, Sheets）が最大の強み。</div>
+      <div class="tool-desc">GoogleのGeminiを搭載した<strong>独立アプリ（VS Codeベースの専用エディタ）</strong>。ダウンロードして使う。</div>
       <div class="tool-meta">
-        <span><strong>月額:</strong> 無料〜 Gemini Advanced 2,900円</span>
-        <span><strong>環境:</strong> VS Code拡張</span>
+        <span><strong>月額:</strong> 無料（Googleアカウントがあれば利用可能）</span>
+        <span><strong>使える場所:</strong> 専用デスクトップアプリ（antigravity.google）</span>
       </div>
     </div>
     <div class="grid-2">
       <div class="card">
         <div class="card-title">強み</div>
         <div class="card-desc">
-          ・Gmail / Driveと直接連携<br>
+          ・<strong>無料で使える</strong>（追加課金なし）<br>
+          ・アプリを入れるだけで始められる<br>
           ・Google検索ベースの情報収集<br>
-          ・無料から始められる<br>
-          ・スプレッドシート連携
+          ・ファイル編集・作成が可能
         </div>
       </div>
       <div class="card">
-        <div class="card-title">向いているタスク</div>
+        <div class="card-title">注意点</div>
         <div class="card-desc">
-          ・メール処理・ファイル整理<br>
-          ・リサーチ・市場調査<br>
-          ・データ集計・レポート作成<br>
-          ・Google系ツールを多用する人に
+          ・<strong>個人のGmailアカウントが必要</strong><br>
+          　（Google Workspaceアカウントは非対応）<br>
+          ・VS Codeとは別のアプリ<br>
+          ・Googleの別ツール「Jules」「Gemini Code Assist」もある
         </div>
       </div>
+    </div>
+    <div class="info-box" style="margin-top: 12px;">
+      <p style="font-size: 13px;"><strong>Google系AIエージェントは3種類あります:</strong> Antigravity（専用アプリ）/ Jules（Webから使えるエージェント / jules.google.com）/ Gemini Code Assist（VS Code拡張）。今回はAntigravityを紹介。</p>
     </div>
   </div>
 
@@ -436,11 +439,12 @@
         <tr><th>比較項目</th><th>Claude Code</th><th>Codex</th><th>Antigravity</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>始めやすさ</strong></td><td>VS Code必要</td><td class="good">Webだけで使える</td><td>VS Code必要</td></tr>
+        <tr><td><strong>使える場所</strong></td><td>ターミナル / VS Code / デスクトップ</td><td class="good">Web / CLI / VS Code / macOSアプリ</td><td>専用アプリ</td></tr>
+        <tr><td><strong>始めやすさ</strong></td><td>ターミナルかVS Codeが必要</td><td class="good">Webだけで使える</td><td>アプリDLが必要</td></tr>
         <tr><td><strong>日本語の質</strong></td><td class="good">最も自然</td><td>良い</td><td>普通</td></tr>
         <tr><td><strong>文書作成</strong></td><td class="good">最強</td><td>良い</td><td>普通</td></tr>
-        <tr><td><strong>Google連携</strong></td><td class="muted">なし</td><td class="muted">なし</td><td class="good">最強</td></tr>
-        <tr><td><strong>月額（最安）</strong></td><td>約3,000円〜</td><td>約3,000円</td><td>無料〜</td></tr>
+        <tr><td><strong>月額</strong></td><td>約3,000円〜</td><td>約3,000円</td><td class="good">無料</td></tr>
+        <tr><td><strong>注意点</strong></td><td class="muted">—</td><td class="muted">—</td><td>個人Gmail必須<br>（Workspace不可）</td></tr>
       </tbody>
     </table>
     <div class="highlight-box">
@@ -672,8 +676,8 @@
 
   <!-- ===== SLIDE 22: VS Code ===== -->
   <div class="slide">
-    <h2>STEP 0: <span class="accent">VS Code</span> のインストール</h2>
-    <p class="lead">Claude CodeとAntigravityはVS Code上で動きます。まだの人はまずこれから。</p>
+    <h2>STEP 0: <span class="accent">VS Code</span> のインストール（任意）</h2>
+    <p class="lead">Claude CodeのVS Code拡張を使いたい場合に必要。Codex（Web版）やAntigravityには不要です。</p>
     <div class="step-list">
       <div class="step-item">
         <div class="step-title">VS Codeをダウンロード</div>
@@ -683,6 +687,9 @@
         <div class="step-title">日本語化（任意）</div>
         <div class="step-desc">拡張機能 → 「Japanese」検索 → 「Japanese Language Pack」をインストール → 再起動</div>
       </div>
+    </div>
+    <div class="info-box" style="margin-top: 16px;">
+      <p style="font-size: 14px;"><strong>VS Codeがなくても使えるもの:</strong> Codex（Web版）、Antigravity（専用アプリ）、Claude Code（ターミナル版）</p>
     </div>
   </div>
 
@@ -707,25 +714,43 @@
   </div>
 
   <!-- ===== SLIDE 24: Claude Code setup ===== -->
-  <div class="slide">
+  <div class="slide slide-top">
     <h2><span class="tool-tag tag-anthropic" style="font-size:14px; vertical-align:middle;">Anthropic</span> Claude Code のセットアップ</h2>
-    <p class="lead" style="font-size:16px;">VS Codeの拡張機能として動く。</p>
-    <div class="step-list">
-      <div class="step-item">
-        <div class="step-title">Claude Proに加入</div>
-        <div class="step-desc"><strong>claude.ai</strong> でアカウント作成 → 「Upgrade to Pro」（月額約3,000円）</div>
+    <p class="lead" style="font-size:16px;">ターミナル版（メイン）とVS Code拡張の2通り。</p>
+    <div class="grid-2">
+      <div class="card accent-border">
+        <div class="card-title">方法A: ターミナルで使う（おすすめ）</div>
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-title">Claude Proに加入</div>
+            <div class="step-desc"><strong>claude.ai</strong> → アカウント作成 → 「Upgrade to Pro」</div>
+          </div>
+          <div class="step-item">
+            <div class="step-title">ターミナルでインストール</div>
+            <div class="step-desc">以下のコマンドを実行:<br><code style="background:#1e293b; color:#cbd5e1; padding:2px 8px; border-radius:4px; font-size:12px;">curl -fsSL https://claude.ai/install.sh | bash</code></div>
+          </div>
+          <div class="step-item">
+            <div class="step-title">起動 → ログイン</div>
+            <div class="step-desc">ターミナルで <code style="background:#1e293b; color:#cbd5e1; padding:2px 8px; border-radius:4px; font-size:12px;">claude</code> と入力 → ブラウザで認証</div>
+          </div>
+        </div>
       </div>
-      <div class="step-item">
-        <div class="step-title">VS Codeに拡張機能をインストール</div>
-        <div class="step-desc">VS Code → 拡張機能 → 「Claude Code」検索 → インストール</div>
-      </div>
-      <div class="step-item">
-        <div class="step-title">ログイン</div>
-        <div class="step-desc">Claude Codeパネル → 「Sign in」→ ブラウザでClaudeアカウントにログイン</div>
-      </div>
-      <div class="step-item">
-        <div class="step-title">最初の指示を出す</div>
-        <div class="step-desc">チャット欄に作業内容を入力。ファイルの読み書きも自動でやってくれます</div>
+      <div class="card">
+        <div class="card-title">方法B: VS Codeで使う</div>
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-title">Claude Proに加入（同上）</div>
+            <div class="step-desc"><strong>claude.ai</strong> → 「Upgrade to Pro」</div>
+          </div>
+          <div class="step-item">
+            <div class="step-title">VS Codeに拡張機能を追加</div>
+            <div class="step-desc">拡張機能 → 「Claude Code」検索 → インストール</div>
+          </div>
+          <div class="step-item">
+            <div class="step-title">ログイン</div>
+            <div class="step-desc">Claude Codeパネル → 「Sign in」</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -733,24 +758,27 @@
   <!-- ===== SLIDE 25: Antigravity setup ===== -->
   <div class="slide">
     <h2><span class="tool-tag tag-google" style="font-size:14px; vertical-align:middle;">Google</span> Antigravity のセットアップ</h2>
-    <p class="lead" style="font-size:16px;">GoogleのGeminiを搭載したVS Code拡張。</p>
+    <p class="lead" style="font-size:16px;">Google製の独立アプリ。VS Codeとは別物です。</p>
     <div class="step-list">
       <div class="step-item">
-        <div class="step-title">Googleアカウントを用意</div>
-        <div class="step-desc">会社のGoogle Workspaceアカウントでも、個人アカウントでもOK</div>
+        <div class="step-title">個人のGmailアカウントを用意</div>
+        <div class="step-desc"><strong>⚠ 注意: Google Workspaceアカウント（会社用）は使えません。</strong>個人の @gmail.com が必要</div>
       </div>
       <div class="step-item">
-        <div class="step-title">VS Codeに拡張機能をインストール</div>
-        <div class="step-desc">拡張機能 → 「Gemini Code Assist」検索 → インストール</div>
+        <div class="step-title">Antigravityをダウンロード</div>
+        <div class="step-desc"><strong>antigravity.google</strong> にアクセス → 「Download」→ インストール</div>
       </div>
       <div class="step-item">
         <div class="step-title">Googleアカウントでログイン</div>
-        <div class="step-desc">指示に従ってサインイン。Google DriveやGmailと連携可能に</div>
+        <div class="step-desc">アプリを起動 → 個人のGmailアカウントでサインイン</div>
       </div>
       <div class="step-item">
         <div class="step-title">最初の指示を出す</div>
-        <div class="step-desc">サイドバーのGeminiパネルからタスクを入力</div>
+        <div class="step-desc">チャット欄にタスクを入力。無料で使えます</div>
       </div>
+    </div>
+    <div class="caution-box" style="margin-top: 12px; padding: 14px 20px;">
+      <p style="font-size: 13px;"><strong>⚠ 会社のGoogleアカウントでは使えません。</strong>個人のGmailアカウントを各自用意してください。</p>
     </div>
   </div>
 
@@ -799,14 +827,14 @@
   </div>
 
   <!-- ===== SLIDE 29: End ===== -->
-  <div class="slide cover" style="background: linear-gradient(135deg, var(--primary) 0%, #1e4e8c 50%, var(--primary-light) 100%);">
+  <div class="slide cover">
     <p class="cover-label" style="margin-bottom: 16px;">LET'S START</p>
-    <h1 style="font-size: 44px; color: #fff;">さっそく<br>使ってみよう</h1>
+    <h1 style="font-size: 44px;">さっそく<br>使ってみよう</h1>
     <div class="cover-line"></div>
-    <p style="font-size: 18px; opacity: 0.7; max-width: 500px; line-height: 1.9;">
+    <p style="font-size: 18px; color: var(--text-sub); max-width: 500px; line-height: 1.9;">
       今日はこの場で全員セットアップして、<br>最初のタスクをエージェントに投げるところまでやります。
     </p>
-    <p style="font-size: 14px; opacity: 0.4; margin-top: 32px;">株式会社Opus.net | 2026年3月2日</p>
+    <p style="font-size: 14px; color: var(--text-sub); opacity: 0.4; margin-top: 32px;">株式会社Opus.net | 2026年3月2日</p>
   </div>
 
 </div><!-- /.deck -->
